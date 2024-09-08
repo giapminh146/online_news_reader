@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Online News Reader</string>
+    <string name="bookmark">BookMark</string>
+    <string name="setting">Setting</string>
+    <string name="canceled_the_match_between_thailand_and_russia">Canceled the match between Thailand and Russia</string>
+    <string name="settings">Settings</string>
+    <string name="saved_items">Saved Items</string>
+    <string name="news">News</string>
+    <string name="first">First</string>
+    <string name="typhoon_yagi_converted_from_quang_ninh_to_hai_phong">Typhoon Yagi Converted from Quang Ninh to Hai Phong</string>
+    <string name="the_reason_why_little_house_on_the_prairie_left_the_city_to_return_to_the_countryside">The reason why \'Little House on the Prairie\' left the city to return to the countryside</string>
+    <string name="star">star\n</string>
+    <string name="second">second</string>
+    <string name="third">third</string>
 </resources>
