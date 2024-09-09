@@ -11,16 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_gravity="center">
 
-        <ImageView
+        <ImageButton
             android:layout_width="44dp"
             android:layout_height="30dp"
             android:contentDescription="@string/bookmark"
             android:src="@drawable/bookmark"
-            android:layout_gravity="center"
-            android:layout_marginStart="25dp">
-        </ImageView>
+            android:layout_marginStart="20dp"
+            android:scaleType="fitCenter"
+            android:background="@null">
+        </ImageButton>
 
         <TextView
             android:id="@+id/saved_title"
@@ -34,13 +36,15 @@
             android:layout_marginEnd="15dp"
             android:padding="2dp" />
 
-        <ImageView
+        <ImageButton
             android:layout_width="44dp"
             android:layout_height="30dp"
             android:contentDescription="@string/setting"
             android:src="@drawable/settings"
-            android:layout_gravity="center">
-        </ImageView>
+            android:layout_marginStart="20dp"
+            android:scaleType="fitCenter"
+            android:background="@null">
+        </ImageButton>
 
         <TextView
             android:layout_width="wrap_content"
