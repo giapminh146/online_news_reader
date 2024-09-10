@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainScreenFragment"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true"
+        android:scrollbarSize="5dp"
+        tools:ignore="UselessParent">
+        
+        <!-- Linear layout containing all articles-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/big_layout">
+
+
+            <!-- Linear layout containing the image of 1st article -->
+            <LinearLayout
+                android:layout_width="415dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:contentDescription="article1"
+                    android:src="@drawable/article2"
+                    android:scaleType="fitXY"
+                    android:id="@+id/imagearticle1"
+                    android:clickable="true"
+                    android:focusable="true">
+                </ImageView>
+            </LinearLayout>
+
+            <!-- Linear layout for title of 1st article -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/article2_title"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_gravity="top|start"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/textView1">
+                </TextView>
+            </LinearLayout>
+
+            <!-- Linear layout containing the summarized text of 1st article -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/article2_summarized"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_gravity="top|start"
+                    android:textColor="@color/black"
+                    android:id="@+id/textView2">
+                </TextView>
+            </LinearLayout>
+
+            <!-- Linear layout for showing time -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:text="@string/article2_time"
+                    android:textColor="@color/black"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/textView3">
+                </TextView>
+            </LinearLayout>
+
+            <!-- View to separate each article -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:background="@android:color/darker_gray"/>
+
+            <!-- Linear layout containing 2nd article -->
+            <LinearLayout
+                android:layout_width="415dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="article2"
+                    android:src="@drawable/article1"
+                    android:scaleType="fitXY"
+                    android:id="@+id/imagearticle2"
+                    android:clickable="true"
+                    android:focusable="true">
+                </ImageView>
+
+                <!-- LinearLayout to stack the TextViews -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- First TextView for article title -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/article1_title"
+                        android:textSize="21sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/textView4" />
+
+                    <!-- Second TextView for showing time -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="News Reader | 9/9/2024"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:id="@+id/textView5" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- View to separate each article -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="-20dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:background="@android:color/darker_gray"/>
+
+            <!-- Linear layout containing 3rd article -->
+            <LinearLayout
+                android:layout_width="415dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="article3"
+                    android:src="@drawable/article3"
+                    android:scaleType="fitXY"
+                    android:id="@+id/imagearticle3"
+                    android:clickable="true"
+                    android:focusable="true">
+                </ImageView>
+
+                <!-- LinearLayout to stack the TextViews -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- First TextView for article title -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/article3_title"
+                        android:textSize="21sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/textView6" />
+
+                    <!-- Second TextView for showing time -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/time3"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:id="@+id/textView7" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:background="@android:color/darker_gray"/>
+
+            <!-- Linear layout containing 4th article -->
+            <LinearLayout
+                android:layout_width="415dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:layout_margin="10dp"
+                    android:contentDescription="article3"
+                    android:src="@drawable/article4"
+                    android:scaleType="fitXY"
+                    android:id="@+id/imagearticle4"
+                    android:clickable="true"
+                    android:focusable="true">
+                </ImageView>
+
+                <!-- LinearLayout to stack the TextViews -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- First TextView for article title -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/article4_title"
+                        android:textSize="21sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/textView8" />
+
+                    <!-- Second TextView for showing time -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/time3"
+                        android:textSize="14sp"
+                        android:textColor="@color/black"
+                        android:id="@+id/textView9" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="7dp"
+                android:layout_marginEnd="7dp"
+                android:background="@android:color/darker_gray"/>
+
+            <!-- Linear layout containing the image of 5th article -->
+            <LinearLayout
+                android:layout_width="415dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:contentDescription="article5"
+                    android:src="@drawable/article5"
+                    android:scaleType="fitXY"
+                    android:id="@+id/imagearticle5"
+                    android:clickable="true"
+                    android:focusable="true">
+                </ImageView>
+            </LinearLayout>
+
+            <!-- Linear layout for title of 5th article -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/article5_title"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:layout_gravity="top|start"
+                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:id="@+id/textView10">
+                </TextView>
+            </LinearLayout>
+
+            <!-- Linear layout containing the summarized text of 5th article -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/article5_summarized"
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_gravity="top|start"
+                    android:textColor="@color/black"
+                    android:id="@+id/textView11">
+                </TextView>
+            </LinearLayout>
+
+            <!-- Linear layout for showing time -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textSize="14sp"
+                    android:text="@string/time1"
+                    android:textColor="@color/black"
+                    android:layout_gravity="top|start"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:id="@+id/textView12">
+                </TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
