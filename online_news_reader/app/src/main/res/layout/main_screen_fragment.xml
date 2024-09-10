@@ -67,7 +67,7 @@
                 <ImageButton
                     android:id="@+id/bookmark_button"
                     android:layout_width="40dp"
-                    android:layout_height="90dp"
+                    android:layout_height="50dp"
                     android:src="@drawable/ic_bookmark_border"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/bookmark_button_description"
@@ -175,7 +175,7 @@
 
                         <ImageButton
                             android:layout_width="30dp"
-                            android:layout_height="60dp"
+                            android:layout_height="50dp"
                             android:id="@+id/bookmark_button2"
                             android:src="@drawable/ic_bookmark_border"
                             android:background="?attr/selectableItemBackgroundBorderless"
@@ -250,7 +250,7 @@
                             android:id="@+id/textView6" />
                         <ImageButton
                             android:layout_width="30dp"
-                            android:layout_height="60dp"
+                            android:layout_height="50dp"
                             android:id="@+id/bookmark_button3"
                             android:src="@drawable/ic_bookmark_border"
                             android:background="?attr/selectableItemBackgroundBorderless"
@@ -314,24 +314,22 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/article4_title"
-                            android:textSize="21sp"
+                            android:textSize="19sp"
                             android:textColor="@color/black"
                             android:textStyle="bold"
                             android:clickable="true"
                             android:focusable="true"
-                            android:layout_marginEnd="10dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="5dp"
                             android:id="@+id/textView8" />
 
                         <ImageButton
                             android:layout_width="30dp"
-                            android:layout_height="60dp"
+                            android:layout_height="50dp"
                             android:id="@+id/bookmark_button4"
                             android:src="@drawable/ic_bookmark_border"
                             android:background="?attr/selectableItemBackgroundBorderless"
                             android:contentDescription="Bookmark"
-                            android:layout_marginEnd="7dp"
-                            />
+                            android:layout_marginEnd="7dp" />
                     </LinearLayout>
                     <!-- Second TextView for showing time -->
                     <TextView
@@ -339,7 +337,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="@string/time3"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
                         android:textColor="@color/black"
                         android:id="@+id/textView9" />
 
@@ -349,7 +347,6 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:layout_marginTop="5dp"
                 android:layout_marginStart="7dp"
                 android:layout_marginEnd="7dp"
                 android:background="@android:color/darker_gray"/>
@@ -377,11 +374,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/article5_title"
                     android:paddingStart="10dp"
@@ -394,6 +392,16 @@
                     android:focusable="true"
                     android:id="@+id/textView10">
                 </TextView>
+
+                <ImageButton
+                    android:id="@+id/bookmark_button5"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_bookmark_border"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/bookmark_button_description"
+                    android:layout_gravity="center_vertical"
+                    android:padding="8dp"/>
             </LinearLayout>
 
             <!-- Linear layout containing the summarized text of 5th article -->
@@ -449,11 +457,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/article6_title"
                     android:paddingStart="10dp"
@@ -466,6 +475,16 @@
                     android:focusable="true"
                     android:id="@+id/textView13">
                 </TextView>
+
+                <ImageButton
+                    android:id="@+id/bookmark_button6"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_bookmark_border"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/bookmark_button_description"
+                    android:layout_gravity="center_vertical"
+                    android:padding="8dp"/>
             </LinearLayout>
 
             <!-- Linear layout containing the summarized text of 6th article -->
@@ -522,11 +541,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/article7_title"
                     android:paddingStart="10dp"
@@ -539,6 +559,16 @@
                     android:focusable="true"
                     android:id="@+id/textView16">
                 </TextView>
+
+                <ImageButton
+                    android:id="@+id/bookmark_button7"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_bookmark_border"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/bookmark_button_description"
+                    android:layout_gravity="center_vertical"
+                    android:padding="8dp"/>
             </LinearLayout>
 
             <!-- Linear layout containing the summarized text of 7th article -->
