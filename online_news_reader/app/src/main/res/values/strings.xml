@@ -116,4 +116,11 @@
     <string name="article4_summarized">Near Seoul’s Gyeongbokgung Palace, a hotly anticipated auction is being brought to life by two global celebrities: American singer and Louis Vuitton men’s creative director, Pharrell Williams, and South Korea’s trailblazing K-pop star, G-Dragon.</string>
     <string name="article5_title">Apple introduces iPhone 16 and iPhone 16 Plus</string>
     <string name="article5_summarized">Built for Apple Intelligence with the all-new A18 chip, both models feature Camera Control, powerful upgrades to the advanced camera system, the Action button to quickly access useful features, and a big boost in battery life</string>
+    <string name="article6_title">Harris braces for the most critical moment of her political career at debate with Trump</string>
+    <string name="article6_summarized">Kamala Harris’ joyful campaign will Tuesday be hit by the blunt force of reality — a debate with Donald Trump — the most menacing political foe of modern times.</string>
+    <string name="time2">News Reader | 10/9/2024</string>
+    <string name="article7_title">5 ways to increase your happiness through exercise</string>
+    <string name="article7_summarized">Think back to when you were a kid and movement was instinctive — and often infused with pure joy.</string>
+    <string name="time5">News Reader | 6/9/2024</string>
+    <string name="bookmark_button_description">bookmark_button_description</string>
 </resources>
