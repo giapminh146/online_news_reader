@@ -14,8 +14,11 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
 
 public class NewsActivity extends AppCompatActivity {
 
@@ -25,6 +28,16 @@ public class NewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news);
 
         if (savedInstanceState == null) {
+
+            ViewPager viewPager = findViewById(R.id.view_pager);
+            viewPager.setOffscreenPageLimit(3);
+
+            NewsPagerAdapter weatherPagerAdapter = new NewsPagerAdapter(getSupportFragmentManager());
+            viewPager.setAdapter(weatherPagerAdapter);
+
+            TabLayout tabLayout = findViewById(R.id.tab_layout);
+            tabLayout.setupWithViewPager(viewPager);
+
             // Load MainScreenFragment into the container
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_main_screen, new MainScreenFragment())

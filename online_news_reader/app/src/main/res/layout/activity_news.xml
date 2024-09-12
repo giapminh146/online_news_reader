@@ -4,12 +4,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <!-- Main Screen Fragment -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:contentDescription="@string/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.google.android.material.tabs.TabLayout>
     <FrameLayout
         android:id="@+id/fragment_main_screen"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="200">
+    </androidx.viewpager.widget.ViewPager>
+
+    <FrameLayout
+        android:id="@+id/empty_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <!-- Reading Fragment -->
     <FrameLayout
@@ -17,7 +35,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="gone" />
-
     <!-- More Fragment -->
     <FrameLayout
         android:id="@+id/fragment_more"

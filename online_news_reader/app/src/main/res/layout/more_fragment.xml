@@ -10,30 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_gravity="center">
+        android:gravity="center">
 
         <ImageButton
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:contentDescription="@string/bookmark"
+            android:contentDescription="@string/account_icon"
             android:src="@drawable/ic_account"
             android:layout_marginStart="-70dp"
             android:scaleType="fitCenter"
-            android:background="@null">
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/accountButton">
         </ImageButton>
 
         <TextView
-            android:id="@+id/saved_title"
+            android:id="@+id/accountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Account"
-            android:textSize="17sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_gravity="center"
             android:layout_marginEnd="15dp"
-            android:padding="2dp" />
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <ImageButton
             android:layout_width="48dp"
@@ -42,19 +46,25 @@
             android:src="@drawable/ic_settings"
             android:layout_marginStart="40dp"
             android:scaleType="fitCenter"
-            android:background="@null">
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/settingsButton">
         </ImageButton>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings"
-            android:textSize="17sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_gravity="center"
             android:layout_marginEnd="-70dp"
-            android:padding="10dp" >
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/settingsText">
         </TextView>
     </LinearLayout>
 
@@ -81,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Saved articles"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:paddingVertical="8dp" />
