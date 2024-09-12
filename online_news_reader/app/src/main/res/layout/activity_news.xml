@@ -1,26 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <!-- Main Screen Fragment -->
     <FrameLayout
         android:id="@+id/fragment_main_screen"
-        android:name="vn.edu.usth.onlinenewsreader.MainScreenFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <!-- Reading Fragment -->
     <FrameLayout
         android:id="@+id/fragment_reading1"
-        android:name="vn.edu.usth.onlinenewsreader.ReadingFragment1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <FrameLayout
-        android:id="@+id/fragment_container_more"
-        android:name="vn.edu.usth.onlinenewsreader.MoreFragment"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0" />
-    
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <!-- More Fragment -->
+    <FrameLayout
+        android:id="@+id/fragment_more"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <!-- Menu Fragment fixed at the bottom -->
+    <FrameLayout
+        android:id="@+id/fragment_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
+
 </LinearLayout>

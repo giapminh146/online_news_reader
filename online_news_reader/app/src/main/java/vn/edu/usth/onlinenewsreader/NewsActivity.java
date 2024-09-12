@@ -2,10 +2,20 @@ package vn.edu.usth.onlinenewsreader;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 public class NewsActivity extends AppCompatActivity {
 
@@ -14,53 +24,17 @@ public class NewsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
 
-        MainScreenFragment mainScreenFragment = new MainScreenFragment();
+        if (savedInstanceState == null) {
+            // Load MainScreenFragment into the container
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_main_screen, new MainScreenFragment())
+                    .commit();
 
-        MoreFragment moreFragment = new MoreFragment();
-
-        // Loading the main screen fragment
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_main_screen, mainScreenFragment).commit();
-
-        // Later, when "More" is clicked, you can replace it with the More fragment:
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container_more, moreFragment).commit();
-
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
+            // Load MenuFragment into the container
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_menu, new MenuFragment())
+                    .commit();
+        }
     }
 }
-
-
-
-
-
-
-
-
-
-
 

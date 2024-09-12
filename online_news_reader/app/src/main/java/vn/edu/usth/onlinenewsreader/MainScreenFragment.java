@@ -56,6 +56,8 @@ public class MainScreenFragment extends Fragment {
                 transaction.replace(R.id.fragment_reading1, readingFragment1); // 'fragment_container' is the FrameLayout in your activity's layout
                 transaction.addToBackStack(null);  // Add to the back stack so user can navigate back
                 transaction.commit();
+                
+                getActivity().findViewById(R.id.fragment_reading1).setVisibility(View.VISIBLE);
             }
         };
 

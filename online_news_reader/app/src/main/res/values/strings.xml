@@ -126,4 +126,18 @@
     <string name="article1_reading">The 39-year-old tapped home from close range in the 88th minute to complete Portugal’s comeback having gone a goal behind in Lisbon.\n\nScott McTominay’s powerful header in the seventh minute had given Scotland a surprise lead and despite consistent pressure, Portugal struggled to find an equalizer.\n\nThat was until Bruno Fernandes fired home from the edge of the area to level the scores in the 54th minute.\n\nPortugal pushed for a winner, with Ronaldo striking the post and Scotland goalkeeper Angus Gunn twice denying João Félix with superb saves.\n\nAnd just when it looked like both teams would have to settle for a draw, Ronaldo popped up at the back post to convert a dangerous cross from left-back Nuno Mendes.\n\nIt was his second goal in as many games during this international break, having scored his 900th career goal on Thursday against Croatia. It was also his 132nd goal for Portugal, on top of 450 for Real Madrid, 145 for Manchester United, 101 for Juventus, 68 for Al Nassr and five for Sporting Lisbon.</string>
     <string name="article1_reading2">Ronaldo taps home from close range to make it 2-1 for Portugal against Scotland. Craig Williamson/SNS Group/Getty Images</string>
     <string name="article1_reading3">Afterwards, Fernandes – who was playing in his 600th career game – expressed how important Ronaldo was to the Portugal team. “The influence is always the same, regardless of whether he starts on the bench or not,” Fernandes said, per Reuters. “Everyone who came on made the difference. Cristiano has a goal, today he scored 901 and now he’s on his way to a thousand, which is what he wants.” Ronaldo’s winner means Portugal has a perfect start to its Nations League campaign, now with six points to lead League A Group 1.</string>
+    <string name="bookmark_1">bookmark 1</string>
+    <string name="bookmark_2">bookmark 2 </string>
+    <string name="bookmark_3">bookmark 3 </string>
+    <string name="enable_notifications">Enable Notifications</string>
+    <string name="notifications_summary">Receive notifications for updates</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="dark_mode_summary">Enable dark theme for the app</string>
+    <string name="language_select">Languages</string>
+    <string name="font_size_summary">Choose the preferred language</string>
+    <string name="personal_details">Personal details</string>
+    <string name="Cookies">Cookies and Privacy</string>
+    <string name="email">Email Preferences</string>
+    <string name="filter">Content Filter</string>
+    <string name="logout">Logout</string>
 </resources>
