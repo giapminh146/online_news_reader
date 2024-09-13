@@ -15,7 +15,7 @@
         android:fadeScrollbars="true"
         android:scrollbarSize="5dp"
         tools:ignore="UselessParent">
-        
+
         <!-- Linear layout containing all articles-->
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,11 +63,11 @@
                     android:focusable="true"
                     android:id="@+id/textView1">
                 </TextView>
-                
+
                 <ImageButton
                     android:id="@+id/bookmark_button"
-                    android:layout_width="40dp"
-                    android:layout_height="50dp"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
                     android:src="@drawable/ic_bookmark_border"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/bookmark_button_description"
@@ -174,8 +174,8 @@
                             android:id="@+id/textView4" />
 
                         <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="50dp"
+                            android:layout_width="48dp"
+                            android:layout_height="match_parent"
                             android:id="@+id/bookmark_button2"
                             android:src="@drawable/ic_bookmark_border"
                             android:background="?attr/selectableItemBackgroundBorderless"
@@ -228,7 +228,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
-                    
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -249,8 +249,8 @@
                             android:layout_marginTop="10dp"
                             android:id="@+id/textView6" />
                         <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="50dp"
+                            android:layout_width="48dp"
+                            android:layout_height="match_parent"
                             android:id="@+id/bookmark_button3"
                             android:src="@drawable/ic_bookmark_border"
                             android:background="?attr/selectableItemBackgroundBorderless"
@@ -323,8 +323,8 @@
                             android:id="@+id/textView8" />
 
                         <ImageButton
-                            android:layout_width="30dp"
-                            android:layout_height="50dp"
+                            android:layout_width="48dp"
+                            android:layout_height="match_parent"
                             android:id="@+id/bookmark_button4"
                             android:src="@drawable/ic_bookmark_border"
                             android:background="?attr/selectableItemBackgroundBorderless"
@@ -395,8 +395,8 @@
 
                 <ImageButton
                     android:id="@+id/bookmark_button5"
-                    android:layout_width="40dp"
-                    android:layout_height="50dp"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
                     android:src="@drawable/ic_bookmark_border"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/bookmark_button_description"
@@ -478,8 +478,8 @@
 
                 <ImageButton
                     android:id="@+id/bookmark_button6"
-                    android:layout_width="40dp"
-                    android:layout_height="50dp"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
                     android:src="@drawable/ic_bookmark_border"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/bookmark_button_description"
@@ -562,8 +562,8 @@
 
                 <ImageButton
                     android:id="@+id/bookmark_button7"
-                    android:layout_width="40dp"
-                    android:layout_height="50dp"
+                    android:layout_width="48dp"
+                    android:layout_height="match_parent"
                     android:src="@drawable/ic_bookmark_border"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/bookmark_button_description"

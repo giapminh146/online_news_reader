@@ -44,8 +44,9 @@
     <FrameLayout
         android:id="@+id/fragment_more"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:layout_weight="1"/>
 
     <!-- Menu Fragment fixed at the bottom -->
     <FrameLayout
