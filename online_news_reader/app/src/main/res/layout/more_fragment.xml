@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_more"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,53 +11,61 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_gravity="center">
+        android:gravity="center">
 
         <ImageButton
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:contentDescription="@string/bookmark"
-            android:src="@drawable/bookmark"
-            android:layout_marginStart="20dp"
+            android:contentDescription="@string/account_icon"
+            android:src="@drawable/ic_account"
+            android:layout_marginStart="-70dp"
             android:scaleType="fitCenter"
-            android:padding="5dp"
-            android:background="@null">
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/accountButton">
         </ImageButton>
 
         <TextView
-            android:id="@+id/saved_title"
+            android:id="@+id/accountText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/saved_items"
-            android:textSize="15sp"
+            android:text="Account"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#000000"
+            android:textColor="@color/black"
             android:layout_gravity="center"
             android:layout_marginEnd="15dp"
-            android:padding="2dp" />
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <ImageButton
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:contentDescription="@string/setting"
-            android:src="@drawable/settings"
-            android:layout_marginStart="20dp"
+            android:src="@drawable/ic_settings"
+            android:layout_marginStart="40dp"
             android:scaleType="fitCenter"
-            android:padding="5dp"
-            android:background="@null">
+            android:background="@null"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/settingsButton">
         </ImageButton>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_gravity="center"
-            android:layout_marginEnd="40dp"
-            android:padding="10dp" >
+            android:layout_marginEnd="-70dp"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/settingsText">
         </TextView>
     </LinearLayout>
 
@@ -82,8 +91,8 @@
                 android:id="@+id/news_section"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/news"
-                android:textSize="18sp"
+                android:text="Saved articles"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:paddingVertical="8dp" />
@@ -109,8 +118,8 @@
                     <ImageView
                         android:layout_width="130dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/first"
-                        android:scaleType="fitCenter"
+                        android:src="@drawable/article2"
+                        android:scaleType="fitXY"
                         android:contentDescription="@string/first"
                         android:adjustViewBounds="true"
                         android:layout_marginEnd="10dp" >
@@ -121,7 +130,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:textSize="18sp"
-                        android:text="@string/typhoon_yagi_converted_from_quang_ninh_to_hai_phong"
+                        android:text="@string/article2_title"
                         android:textColor="@color/black"/>
 
                     <ImageButton
@@ -132,8 +141,8 @@
                         android:background="@null"
                         android:contentDescription="@string/bookmark_1"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/bookmark_gold"
-                        android:padding="20dp">
+                        android:src="@drawable/ic_bookmark_filled"
+                        android:padding="12dp">
                     </ImageButton>
                 </LinearLayout>
 
@@ -153,9 +162,9 @@
                     <ImageView
                         android:layout_width="130dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/second"
+                        android:src="@drawable/article3"
                         android:contentDescription="@string/second"
-                        android:scaleType="fitCenter"
+                        android:scaleType="fitXY"
                         android:adjustViewBounds="true"
                         android:layout_marginEnd="10dp" >
                     </ImageView>
@@ -163,7 +172,7 @@
                     <TextView
                         android:layout_width="190dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/canceled_the_match_between_thailand_and_russia"
+                        android:text="@string/article3_title"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -176,8 +185,8 @@
                         android:contentDescription="@string/bookmark_2"
                         android:scaleType="fitCenter"
                         android:background="@null"
-                        android:src="@drawable/bookmark_gold"
-                        android:padding="20dp">
+                        android:src="@drawable/ic_bookmark_filled"
+                        android:padding="12dp">
                     </ImageView>
                 </LinearLayout>
 
@@ -197,9 +206,9 @@
                     <ImageView
                         android:layout_width="130dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/third"
+                        android:src="@drawable/a3"
                         android:contentDescription="@string/third"
-                        android:scaleType="fitCenter"
+                        android:scaleType="fitXY"
                         android:adjustViewBounds="true"
                         android:layout_marginEnd="10dp" >
                     </ImageView>
@@ -208,7 +217,7 @@
                         android:layout_width="190dp"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="@string/the_reason_why_little_house_on_the_prairie_left_the_city_to_return_to_the_countryside"
+                        android:text="@string/a3_title"
                         android:textColor="@color/black"
                         android:textStyle="bold"/>
 
@@ -219,8 +228,8 @@
                         android:contentDescription="@string/bookmark_3"
                         android:scaleType="fitCenter"
                         android:background="@null"
-                        android:src="@drawable/bookmark_gold"
-                        android:padding="20dp">
+                        android:src="@drawable/ic_bookmark_filled"
+                        android:padding="12dp">
                     </ImageButton>
                 </LinearLayout>
 
