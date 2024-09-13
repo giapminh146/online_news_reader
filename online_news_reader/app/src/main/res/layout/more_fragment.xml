@@ -7,11 +7,6 @@
     android:padding="16dp"
     android:background="@color/white">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/black" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -21,7 +16,6 @@
         <ImageButton
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:padding="5dp"
             android:contentDescription="@string/account_icon"
             android:src="@drawable/ic_account"
             android:layout_marginStart="-70dp"
@@ -35,24 +29,23 @@
         <TextView
             android:id="@+id/accountText"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_marginEnd="5dp"
-            android:clickable="true"
-            android:focusable="true"
+            android:layout_height="wrap_content"
             android:text="Account"
-            android:textColor="#000080"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginEnd="15dp"
+            android:padding="10dp"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <ImageButton
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:padding="5dp"
             android:contentDescription="@string/setting"
             android:src="@drawable/ic_settings"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="40dp"
             android:scaleType="fitCenter"
             android:background="@null"
             android:clickable="true"
@@ -62,11 +55,11 @@
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:text="@string/settings"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="#000080"
+            android:textColor="@color/black"
             android:layout_gravity="center"
             android:layout_marginEnd="-70dp"
             android:padding="10dp"
@@ -79,6 +72,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
+        android:layout_marginTop="15dp"
         android:background="@color/black" />
 
     <!-- Scrollable menu section -->
@@ -100,7 +94,7 @@
                 android:text="Saved articles"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="#000080"
+                android:textColor="@color/black"
                 android:paddingVertical="8dp" />
 
             <View
@@ -141,14 +135,14 @@
 
                     <ImageButton
                         android:layout_width="75dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="75dp"
                         android:adjustViewBounds="true"
                         android:layout_marginEnd="10dp"
                         android:background="@null"
                         android:contentDescription="@string/bookmark_1"
                         android:scaleType="fitCenter"
                         android:src="@drawable/ic_bookmark_filled"
-                        android:padding="18dp">
+                        android:padding="12dp">
                     </ImageButton>
                 </LinearLayout>
 
@@ -185,14 +179,14 @@
 
                     <ImageView
                         android:layout_width="75dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="75dp"
                         android:layout_marginEnd="10dp"
                         android:adjustViewBounds="true"
                         android:contentDescription="@string/bookmark_2"
                         android:scaleType="fitCenter"
                         android:background="@null"
                         android:src="@drawable/ic_bookmark_filled"
-                        android:padding="18dp">
+                        android:padding="12dp">
                     </ImageView>
                 </LinearLayout>
 
@@ -229,13 +223,13 @@
 
                     <ImageButton
                         android:layout_width="75dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="75dp"
                         android:layout_marginEnd="10dp"
                         android:contentDescription="@string/bookmark_3"
                         android:scaleType="fitCenter"
                         android:background="@null"
                         android:src="@drawable/ic_bookmark_filled"
-                        android:padding="18dp">
+                        android:padding="12dp">
                     </ImageButton>
                 </LinearLayout>
 
