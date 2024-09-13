@@ -117,8 +117,8 @@
                     <ImageView
                         android:layout_width="130dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/first"
-                        android:scaleType="fitCenter"
+                        android:src="@drawable/article2"
+                        android:scaleType="fitXY"
                         android:contentDescription="@string/first"
                         android:adjustViewBounds="true"
                         android:layout_marginEnd="10dp" >
@@ -129,7 +129,7 @@
                         android:layout_height="wrap_content"
                         android:textStyle="bold"
                         android:textSize="18sp"
-                        android:text="@string/typhoon_yagi_converted_from_quang_ninh_to_hai_phong"
+                        android:text="@string/article2_title"
                         android:textColor="@color/black"/>
 
                     <ImageButton
@@ -140,8 +140,8 @@
                         android:background="@null"
                         android:contentDescription="@string/bookmark_1"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/bookmark_gold"
-                        android:padding="20dp">
+                        android:src="@drawable/ic_bookmark_filled"
+                        android:padding="12dp">
                     </ImageButton>
                 </LinearLayout>
 
@@ -161,9 +161,9 @@
                     <ImageView
                         android:layout_width="130dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/second"
+                        android:src="@drawable/article3"
                         android:contentDescription="@string/second"
-                        android:scaleType="fitCenter"
+                        android:scaleType="fitXY"
                         android:adjustViewBounds="true"
                         android:layout_marginEnd="10dp" >
                     </ImageView>
@@ -171,7 +171,7 @@
                     <TextView
                         android:layout_width="190dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/canceled_the_match_between_thailand_and_russia"
+                        android:text="@string/article3_title"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -184,8 +184,8 @@
                         android:contentDescription="@string/bookmark_2"
                         android:scaleType="fitCenter"
                         android:background="@null"
-                        android:src="@drawable/bookmark_gold"
-                        android:padding="20dp">
+                        android:src="@drawable/ic_bookmark_filled"
+                        android:padding="12dp">
                     </ImageView>
                 </LinearLayout>
 
@@ -205,9 +205,9 @@
                     <ImageView
                         android:layout_width="130dp"
                         android:layout_height="90dp"
-                        android:src="@drawable/third"
+                        android:src="@drawable/a3"
                         android:contentDescription="@string/third"
-                        android:scaleType="fitCenter"
+                        android:scaleType="fitXY"
                         android:adjustViewBounds="true"
                         android:layout_marginEnd="10dp" >
                     </ImageView>
@@ -216,7 +216,7 @@
                         android:layout_width="190dp"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="@string/the_reason_why_little_house_on_the_prairie_left_the_city_to_return_to_the_countryside"
+                        android:text="@string/a3_title"
                         android:textColor="@color/black"
                         android:textStyle="bold"/>
 
@@ -227,8 +227,8 @@
                         android:contentDescription="@string/bookmark_3"
                         android:scaleType="fitCenter"
                         android:background="@null"
-                        android:src="@drawable/bookmark_gold"
-                        android:padding="20dp">
+                        android:src="@drawable/ic_bookmark_filled"
+                        android:padding="12dp">
                     </ImageButton>
                 </LinearLayout>
 

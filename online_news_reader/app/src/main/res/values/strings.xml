@@ -104,24 +104,24 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="summarized_article1">Wind patterns from typhoon Yagi triggered heave rains that caused devastating floods and landslides in Lao Cai, Yen Bai, Thai Nguyen and Cao Bang provinces on Monday.</string>
-    <string name="time1">News Reader  |  9/9/2024</string>
+    <string name="time1">USTH News  |  9/9/2024</string>
     <string name="article1_title">Floods ravage Vietnam\'s northern highlands in wake of typhoon Yagi</string>
     <string name="article2_title">Cristiano Ronaldo scores 901st career goal to rescue Portugal in the Nations League</string>
     <string name="article2_summarized">Cristiano Ronaldo scored his 901st career goal on Sunday as he rescued a 2-1 victory for Portugal against Scotland in the UEFA Nations League.</string>
-    <string name="article2_time">News Reader | 10/9/2024</string>
+    <string name="article2_time">USTH News | 10/9/2024</string>
     <string name="article3_title">Taylor Swift and Travis Kelce serve couple goals at the US Open final</string>
     <string name="article3_summarized">Swift and Kelce were among the famous faces shown on broadcast of the US Open men’s singles final on Sunday. Italy’s Jannik Sinner beat out American tennis star Taylor Fritz in the match</string>
-    <string name="time3">News Reader | 8/9/2024</string>
+    <string name="time3">USTH News | 8/9/2024</string>
     <string name="article4_title">Pharrell’s Joopiter puts on sale of K-pop star G-Dragon’s prized possessions</string>
     <string name="article4_summarized">Near Seoul’s Gyeongbokgung Palace, a hotly anticipated auction is being brought to life by two global celebrities: American singer and Louis Vuitton men’s creative director, Pharrell Williams, and South Korea’s trailblazing K-pop star, G-Dragon.</string>
     <string name="article5_title">Apple introduces iPhone 16 and iPhone 16 Plus</string>
     <string name="article5_summarized">Built for Apple Intelligence with the all-new A18 chip, both models feature Camera Control, powerful upgrades to the advanced camera system, the Action button to quickly access useful features, and a big boost in battery life</string>
     <string name="article6_title">Harris braces for the most critical moment of her political career at debate with Trump</string>
     <string name="article6_summarized">Kamala Harris’ joyful campaign will Tuesday be hit by the blunt force of reality — a debate with Donald Trump — the most menacing political foe of modern times.</string>
-    <string name="time2">News Reader | 10/9/2024</string>
+    <string name="time2">USTH News | 10/9/2024</string>
     <string name="article7_title">5 ways to increase your happiness through exercise</string>
     <string name="article7_summarized">Think back to when you were a kid and movement was instinctive — and often infused with pure joy.</string>
-    <string name="time5">News Reader | 6/9/2024</string>
+    <string name="time5">USTH News | 6/9/2024</string>
     <string name="bookmark_button_description">bookmark_button_description</string>
     <string name="article1_reading">The 39-year-old tapped home from close range in the 88th minute to complete Portugal’s comeback having gone a goal behind in Lisbon.\n\nScott McTominay’s powerful header in the seventh minute had given Scotland a surprise lead and despite consistent pressure, Portugal struggled to find an equalizer.\n\nThat was until Bruno Fernandes fired home from the edge of the area to level the scores in the 54th minute.\n\nPortugal pushed for a winner, with Ronaldo striking the post and Scotland goalkeeper Angus Gunn twice denying João Félix with superb saves.\n\nAnd just when it looked like both teams would have to settle for a draw, Ronaldo popped up at the back post to convert a dangerous cross from left-back Nuno Mendes.\n\nIt was his second goal in as many games during this international break, having scored his 900th career goal on Thursday against Croatia. It was also his 132nd goal for Portugal, on top of 450 for Real Madrid, 145 for Manchester United, 101 for Juventus, 68 for Al Nassr and five for Sporting Lisbon.</string>
     <string name="article1_reading2">Ronaldo taps home from close range to make it 2-1 for Portugal against Scotland. Craig Williamson/SNS Group/Getty Images</string>
@@ -177,4 +177,5 @@
     <string name="account">Account</string>
     <string name="tablayout" />
     <string name="viewpager" />
+    <string name="usthnews">USTH News</string>
 </resources>

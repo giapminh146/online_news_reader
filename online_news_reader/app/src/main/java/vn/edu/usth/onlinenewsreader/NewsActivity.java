@@ -38,10 +38,14 @@ public class NewsActivity extends AppCompatActivity {
             TabLayout tabLayout = findViewById(R.id.tab_layout);
             tabLayout.setupWithViewPager(viewPager);
 
-            // Load MainScreenFragment into the container
+//            // Load MainScreenFragment into the container
+//            getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.fragment_main_screen, new MainScreenFragment())
+//                    .commit();
+
             getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_main_screen, new MainScreenFragment())
-                    .commit();
+                            .replace(R.id.header_fragment, new HeaderFragment())
+                                    .commit();
 
             // Load MenuFragment into the container
             getSupportFragmentManager().beginTransaction()
