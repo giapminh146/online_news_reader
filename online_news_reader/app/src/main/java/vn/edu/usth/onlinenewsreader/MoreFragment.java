@@ -18,7 +18,13 @@ public class MoreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.more_fragment, container, false);
 
+        // Initialize account button and textview
         ImageButton accountButton = view.findViewById(R.id.accountButton);
+        TextView accountTextView = view.findViewById(R.id.accountText);
+        // Initialize settings button and textview
+        ImageButton settingsButton = view.findViewById(R.id.settingsButton);
+        TextView settingsTextView = view.findViewById(R.id.settingsText);
+
         accountButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,6 +33,34 @@ public class MoreFragment extends Fragment {
                 getActivity().startActivity(intent);
             }
         });
+
+        accountTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), AccountActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), SettingsActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
+
+        settingsTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent();
+                intent.setClass(getActivity(), SettingsActivity.class);
+                getActivity().startActivity(intent);
+            }
+        });
         return view;
     }
+
 }

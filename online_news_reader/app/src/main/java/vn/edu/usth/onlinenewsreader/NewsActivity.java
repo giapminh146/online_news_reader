@@ -25,6 +25,10 @@ import com.google.android.material.tabs.TabLayout;
 
 public class NewsActivity extends AppCompatActivity {
 
+    private ImageButton homeButton, moreButton;
+    private TextView homeTextView, moreTextView;
+    private LinearLayout homeLayout, moreLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +36,6 @@ public class NewsActivity extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
 
         // Setup ViewPager
         ViewPager viewPager = findViewById(R.id.view_pager);
@@ -44,80 +47,100 @@ public class NewsActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_header, new HeaderFragment())
-                .commit();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.menu, new MenuFragment()).commit();
+        // Replace fragments
+        fragmentManager.beginTransaction().replace(R.id.fragment_header, new HeaderFragment()).commit();
+        fragmentManager.beginTransaction().replace(R.id.menu, new MenuFragment()).commit();
 
-        // Set up OnClick Listener
-        LinearLayout homeLayout = findViewById(R.id.homeLayout);
-        LinearLayout moreLayout = findViewById(R.id.moreLayout);
-        TextView moreTextView = findViewById(R.id.moreTextView);
-        TextView homeTextView = findViewById(R.id.homeTextView);
-        ImageButton homeButton = findViewById(R.id.homeButton);
-        ImageButton moreButton = findViewById(R.id.moreButton);
+        // Initialize UI components
+        homeLayout = findViewById(R.id.homeLayout);
+        moreLayout = findViewById(R.id.moreLayout);
+        homeTextView = findViewById(R.id.homeTextView);
+        moreTextView = findViewById(R.id.moreTextView);
+        homeButton = findViewById(R.id.homeButton);
+        moreButton = findViewById(R.id.moreButton);
 
-        moreLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tabLayout.setVisibility(View.GONE);
+        // Initially set the Home icon to filled and the text color to custom blue
+        homeButton.setImageResource(R.drawable.ic_home_filled);  // Use your filled home icon
+        homeTextView.setTextColor(ContextCompat.getColor(this, R.color.red));
 
-                // Create a new FragmentTransaction for the MoreFragment
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.view_pager_container, new MoreFragment());
-                fragmentTransaction.addToBackStack("home");
-                fragmentTransaction.commit();
+        // Set up OnClickListener for More section
+        View.OnClickListener moreClickListener = view -> {
+            // Change More icon to filled version and text color to custom_blue
+            moreButton.setImageResource(R.drawable.ic_more_filled);  // Use your filled more icon
+            moreTextView.setTextColor(ContextCompat.getColor(this, R.color.red));
+
+            // Reset Home icon and text color
+            homeButton.setImageResource(R.drawable.ic_home_border);  // Use your outlined home icon
+            homeTextView.setTextColor(ContextCompat.getColor(this, R.color.black));
+
+            tabLayout.setVisibility(View.GONE);
+
+            // Switch to MoreFragment
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(R.id.view_pager_container, new MoreFragment());
+            ft.addToBackStack("home");
+            ft.commit();
+        };
+
+        moreLayout.setOnClickListener(moreClickListener);
+        moreTextView.setOnClickListener(moreClickListener);
+        moreButton.setOnClickListener(moreClickListener);
+
+        // Set up OnClickListener for Home section
+        View.OnClickListener homeClickListener = view -> {
+            // Change Home icon to filled version and text color to custom_blue
+            homeButton.setImageResource(R.drawable.ic_home_filled);  // Use your filled home icon
+            homeTextView.setTextColor(ContextCompat.getColor(this, R.color.red));
+
+            // Reset More icon and text color
+            moreButton.setImageResource(R.drawable.ic_more_border);  // Use your outlined more icon
+            moreTextView.setTextColor(ContextCompat.getColor(this, R.color.black));
+
+            tabLayout.setVisibility(View.VISIBLE);
+
+            // Switch back to MainScreenFragment (via ViewPager)
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            Fragment moreFragment = fragmentManager.findFragmentById(R.id.view_pager_container);
+            if (moreFragment != null) {
+                ft.hide(moreFragment);
             }
-        });
+            ft.addToBackStack("more");
+            ft.commit();
+        };
 
-        homeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tabLayout.setVisibility(View.VISIBLE);
+        homeLayout.setOnClickListener(homeClickListener);
+        homeTextView.setOnClickListener(homeClickListener);
+        homeButton.setOnClickListener(homeClickListener);
 
-                // Create a new FragmentTransaction to replace MoreFragment with the ViewPager
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-
-                // hide more fragment
-                Fragment moreFragment = getSupportFragmentManager().findFragmentById(R.id.view_pager_container);
-                if (moreFragment != null) {
-                    fragmentTransaction.hide(moreFragment);
-                }
-                // add to back stack
-                fragmentTransaction.addToBackStack("more");
-                fragmentTransaction.commit();
-            }
-        });
         // Handle back navigation
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-
-                // Check if there's a fragment in the back stack
                 if (fragmentManager.getBackStackEntryCount() > 0) {
-                    // Get the top back stack entry
-                    String topFragmentName = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
-
+                    String topFragmentName = fragmentManager.getBackStackEntryAt(
+                            fragmentManager.getBackStackEntryCount() - 1).getName();
                     if ("home".equals(topFragmentName)) {
-                        // Pop the stack and show TabLayout
                         fragmentManager.popBackStack();
                         tabLayout.setVisibility(View.VISIBLE);
+                        homeButton.setImageResource(R.drawable.ic_home_filled);
+                        homeTextView.setTextColor(ContextCompat.getColor(NewsActivity.this, R.color.red));
+                        moreButton.setImageResource(R.drawable.ic_more_border);
+                        moreTextView.setTextColor(ContextCompat.getColor(NewsActivity.this, R.color.black));
                     } else if ("more".equals(topFragmentName)) {
-                        // Pop the stack and hide TabLayout
                         fragmentManager.popBackStack();
                         tabLayout.setVisibility(View.GONE);
+                        moreButton.setImageResource(R.drawable.ic_more_filled);
+                        moreTextView.setTextColor(ContextCompat.getColor(NewsActivity.this, R.color.red));
+                        homeButton.setImageResource(R.drawable.ic_home_border);
+                        homeTextView.setTextColor(ContextCompat.getColor(NewsActivity.this, R.color.black));
                     }
                 } else {
-                    // Exit the activity if no fragments left in back stack
                     finish();
                 }
             }
         };
-
         getOnBackPressedDispatcher().addCallback(this, callback);
-
     }
 }
+
 
