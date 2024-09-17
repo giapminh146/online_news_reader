@@ -35,7 +35,6 @@ public class NewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_news);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         // Setup ViewPager
         ViewPager viewPager = findViewById(R.id.view_pager);
@@ -51,7 +50,7 @@ public class NewsActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().replace(R.id.fragment_header, new HeaderFragment()).commit();
         fragmentManager.beginTransaction().replace(R.id.menu, new MenuFragment()).commit();
 
-        // Initialize UI components
+        // Initialize menu components
         homeLayout = findViewById(R.id.homeLayout);
         moreLayout = findViewById(R.id.moreLayout);
         homeTextView = findViewById(R.id.homeTextView);
@@ -59,18 +58,18 @@ public class NewsActivity extends AppCompatActivity {
         homeButton = findViewById(R.id.homeButton);
         moreButton = findViewById(R.id.moreButton);
 
-        // Initially set the Home icon to filled and the text color to custom blue
-        homeButton.setImageResource(R.drawable.ic_home_filled);  // Use your filled home icon
+        // Initially set the Home icon to filled and the text color to red
+        homeButton.setImageResource(R.drawable.ic_home_filled);
         homeTextView.setTextColor(ContextCompat.getColor(this, R.color.red));
 
-        // Set up OnClickListener for More section
+        // Set up OnClickListener for More fragment
         View.OnClickListener moreClickListener = view -> {
-            // Change More icon to filled version and text color to custom_blue
-            moreButton.setImageResource(R.drawable.ic_more_filled);  // Use your filled more icon
+            // Change More icon to filled version and text color to red
+            moreButton.setImageResource(R.drawable.ic_more_filled);
             moreTextView.setTextColor(ContextCompat.getColor(this, R.color.red));
 
             // Reset Home icon and text color
-            homeButton.setImageResource(R.drawable.ic_home_border);  // Use your outlined home icon
+            homeButton.setImageResource(R.drawable.ic_home_border);
             homeTextView.setTextColor(ContextCompat.getColor(this, R.color.black));
 
             tabLayout.setVisibility(View.GONE);
@@ -119,6 +118,7 @@ public class NewsActivity extends AppCompatActivity {
                 if (fragmentManager.getBackStackEntryCount() > 0) {
                     String topFragmentName = fragmentManager.getBackStackEntryAt(
                             fragmentManager.getBackStackEntryCount() - 1).getName();
+                    // Handle back to home
                     if ("home".equals(topFragmentName)) {
                         fragmentManager.popBackStack();
                         tabLayout.setVisibility(View.VISIBLE);
@@ -126,7 +126,9 @@ public class NewsActivity extends AppCompatActivity {
                         homeTextView.setTextColor(ContextCompat.getColor(NewsActivity.this, R.color.red));
                         moreButton.setImageResource(R.drawable.ic_more_border);
                         moreTextView.setTextColor(ContextCompat.getColor(NewsActivity.this, R.color.black));
-                    } else if ("more".equals(topFragmentName)) {
+                    }
+                    // Handle back to more
+                    else if ("more".equals(topFragmentName)) {
                         fragmentManager.popBackStack();
                         tabLayout.setVisibility(View.GONE);
                         moreButton.setImageResource(R.drawable.ic_more_filled);

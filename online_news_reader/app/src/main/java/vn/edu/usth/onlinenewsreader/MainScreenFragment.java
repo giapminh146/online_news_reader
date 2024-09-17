@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainScreenFragment extends Fragment {
@@ -23,6 +24,7 @@ public class MainScreenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.main_screen_fragment, container, false);
 
+        ImageView article1Image = view.findViewById(R.id.imagearticle1);
         TextView titleText = view.findViewById(R.id.textView1);
         TextView descriptionText = view.findViewById(R.id.textView2);
         TabLayout tabLayout = getActivity().findViewById(R.id.tab_layout);
@@ -32,12 +34,13 @@ public class MainScreenFragment extends Fragment {
             tabLayout.setVisibility(View.GONE);
             FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
             transaction.replace(R.id.view_pager_container, new ReadingFragment1());
-            transaction.addToBackStack("home"); // Add to back stack with a name to differentiate
+            transaction.addToBackStack("home"); // Add to back stack
             transaction.commit();
         };
 
         titleText.setOnClickListener(navigateToReadingFragment);
         descriptionText.setOnClickListener(navigateToReadingFragment);
+        article1Image.setOnClickListener(navigateToReadingFragment);
 
         ImageButton[] bookmarkButtons = {
                 view.findViewById(R.id.bookmark_button),
