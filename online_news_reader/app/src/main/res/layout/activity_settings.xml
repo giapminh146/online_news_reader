@@ -5,23 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".SettingsFragment"
     android:background="@color/white">
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        android:gravity="start">
-
+        android:gravity="center">
 
         <ImageButton
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:contentDescription="@string/setting"
-            android:src="@drawable/ic_settings"
+            android:padding="2dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_settings_black"
             android:scaleType="fitCenter"
             android:background="@null">
         </ImageButton>
@@ -34,11 +32,8 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_gravity="center"
-            android:layout_marginEnd="40dp"
             android:padding="2dp" >
         </TextView>
-
-
 
     </LinearLayout>
     <!--personal details -->
@@ -54,7 +49,6 @@
         android:gravity="center_vertical"
         android:paddingVertical="10dp">
 
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -62,7 +56,6 @@
             android:text="@string/personal_details"
             android:textColor="@color/black"
             android:textSize="18sp" />
-
     </LinearLayout>
 
     <!-- cooki -->
@@ -78,7 +71,6 @@
         android:gravity="center_vertical"
         android:paddingVertical="10dp">
 
-
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -86,22 +78,20 @@
             android:text="@string/Cookies"
             android:textColor="@color/black"
             android:textSize="18sp" />
-
     </LinearLayout>
-    <!-- noti -->
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/black" />
 
+    <!-- noti -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         android:paddingVertical="10dp">
-
 
         <TextView
             android:layout_width="0dp"
@@ -116,7 +106,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:thumbTint="@color/black"
-            android:trackTint="@color/black"/>
+            android:trackTint="@color/black">
+        </Switch>
     </LinearLayout>
     <View
         android:layout_width="match_parent"
@@ -142,13 +133,14 @@
             android:id="@+id/checkbox_dark_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:buttonTint="@color/black"
-            />
+            android:buttonTint="@color/black" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/black" />
+
     <!-- language select -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -174,52 +166,6 @@
 
     </LinearLayout>
 
-    <!-- email pref -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/black" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingVertical="10dp">
-
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/email"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-
-    </LinearLayout>
-    <!-- Filter -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@color/black" />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingVertical="10dp">
-
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/filter"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-
-    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -245,12 +191,12 @@
 
         <ImageButton
             android:id="@+id/logout_button"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/logout_icon"
             android:contentDescription="@string/logout"
             android:background="@null"
-            android:padding="8dp"
+            android:padding="18dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
             android:layout_marginStart="280dp" />

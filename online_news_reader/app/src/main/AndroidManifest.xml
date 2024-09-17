@@ -13,6 +13,21 @@
         android:theme="@style/Theme.AppCompat.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MoreActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".NewsReaderActivity"
             android:exported="false" />
         <activity
