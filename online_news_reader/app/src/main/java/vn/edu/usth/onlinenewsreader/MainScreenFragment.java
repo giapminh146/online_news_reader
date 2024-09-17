@@ -64,24 +64,6 @@ public class MainScreenFragment extends Fragment {
                 bookmarkStates.put(bookmarkButton, !isBookmarked);
             });
         }
-
-        // Handle back navigation
-        getActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                // Check if ReadingFragment1 is on top
-                FragmentManager fragmentManager = getParentFragmentManager();
-                if (fragmentManager.getBackStackEntryCount() > 0) {
-                    String name = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
-                    if ("home".equals(name)) {
-                        // Pop the back stack to return to MainScreenFragment
-                        fragmentManager.popBackStack();
-                        tabLayout.setVisibility(View.VISIBLE);
-                    }
-                }
-            }
-        });
-
         return view;
     }
 }
