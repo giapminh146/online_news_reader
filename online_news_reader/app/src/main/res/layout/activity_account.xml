@@ -9,6 +9,10 @@
     android:padding="16dp"
     android:background="@color/white">
 
+    <include
+        layout="@layout/bar">
+    </include>
+
     <!-- FrameLayout to hold the login form  -->
     <FrameLayout
         android:layout_width="match_parent"

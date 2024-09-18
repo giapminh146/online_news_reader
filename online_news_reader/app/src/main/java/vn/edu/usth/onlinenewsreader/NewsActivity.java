@@ -48,7 +48,6 @@ public class NewsActivity extends AppCompatActivity {
 
         // Replace fragments
         fragmentManager.beginTransaction().replace(R.id.fragment_header, new HeaderFragment()).commit();
-        fragmentManager.beginTransaction().replace(R.id.menu, new MenuFragment()).commit();
 
         // Initialize menu components
         homeLayout = findViewById(R.id.homeLayout);

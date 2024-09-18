@@ -25,15 +25,6 @@
             android:name=".AccountActivity"
             android:exported="false" />
         <activity
-            android:name=".MoreActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".NewsReaderActivity"
-            android:exported="false" />
-        <activity
             android:name=".NewsActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar">
