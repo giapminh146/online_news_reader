@@ -1,5 +1,6 @@
 package vn.edu.usth.onlinenewsreader;
 
+import android.content.Intent;
 import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
@@ -31,11 +32,9 @@ public class MainScreenFragment extends Fragment {
 
         // Handle navigation to ReadingFragment1
         View.OnClickListener navigateToReadingFragment = v -> {
-            tabLayout.setVisibility(View.GONE);
-            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-            transaction.replace(R.id.view_pager_container, new ReadingFragment1());
-            transaction.addToBackStack("home"); // Add to back stack
-            transaction.commit();
+            Intent intent = new Intent();
+            intent.setClass(getActivity(), Reading1Activity.class);
+            getActivity().startActivity(intent);
         };
 
         titleText.setOnClickListener(navigateToReadingFragment);
