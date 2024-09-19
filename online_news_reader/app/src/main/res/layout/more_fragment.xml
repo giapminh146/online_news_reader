@@ -125,6 +125,7 @@
                         android:gravity="center">
 
                         <ImageView
+                            android:id="@+id/imagearticle1"
                             android:layout_width="130dp"
                             android:layout_height="90dp"
                             android:src="@drawable/article2"
@@ -143,6 +144,7 @@
                             android:textColor="@color/black" />
 
                         <ImageButton
+                            android:id="@+id/bookmark_button"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
                             android:adjustViewBounds="true"
@@ -184,7 +186,8 @@
                             android:textSize="18sp"
                             android:textStyle="bold" />
 
-                        <ImageView
+                        <ImageButton
+                            android:id="@+id/bookmark_button2"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
                             android:layout_marginEnd="10dp"
@@ -227,6 +230,7 @@
                             android:textStyle="bold" />
 
                         <ImageButton
+                            android:id="@+id/bookmark_button3"
                             android:layout_width="75dp"
                             android:layout_height="75dp"
                             android:layout_marginEnd="10dp"

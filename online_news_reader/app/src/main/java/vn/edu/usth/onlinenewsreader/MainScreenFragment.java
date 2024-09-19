@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainScreenFragment extends Fragment {
 
@@ -28,7 +29,6 @@ public class MainScreenFragment extends Fragment {
         ImageView article1Image = view.findViewById(R.id.imagearticle1);
         TextView titleText = view.findViewById(R.id.textView1);
         TextView descriptionText = view.findViewById(R.id.textView2);
-        TabLayout tabLayout = getActivity().findViewById(R.id.tab_layout);
 
         // Handle navigation to ReadingFragment1
         View.OnClickListener navigateToReadingFragment = v -> {
@@ -57,9 +57,15 @@ public class MainScreenFragment extends Fragment {
                 boolean isBookmarked = bookmarkStates.get(bookmarkButton);
                 if (isBookmarked) {
                     bookmarkButton.setImageResource(R.drawable.ic_bookmark_border);
+                    if (getActivity() != null) {
+                        Toast.makeText(getActivity(), "Unbookmarked", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
                     bookmarkButton.setImageResource(R.drawable.ic_bookmark_filled);
+                    if (getActivity() != null) {
+                    Toast.makeText(getActivity(), "Bookmarked", Toast.LENGTH_SHORT).show();
                 }
+                    }
                 bookmarkStates.put(bookmarkButton, !isBookmarked);
             });
         }

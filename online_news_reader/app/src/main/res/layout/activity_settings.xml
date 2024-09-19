@@ -54,7 +54,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:fontFamily="sans-serif-condensed"
+                        android:fontFamily="@font/roboto_medium"
                         android:padding="2dp"
                         android:text="@string/settings"
                         android:textColor="@color/custom_blue"
@@ -86,10 +86,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_marginStart="20dp"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="@string/acc"
                     android:textSize="20sp"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@color/black" />
 
                 <ImageView
                     android:layout_width="27dp"
@@ -124,7 +124,7 @@
                     android:textSize="20sp"
                     android:layout_marginStart="20dp"
                     android:textColor="@color/black"
-                    android:fontFamily="sans-serif-medium" />
+                    android:fontFamily="@font/roboto_medium" />
 
                 <Spinner
                     android:id="@+id/language_select"
@@ -161,7 +161,7 @@
                     android:layout_marginStart="20dp"
                     android:textSize="20sp"
                     android:textColor="@color/black"
-                    android:fontFamily="sans-serif-medium" />
+                    android:fontFamily="@font/roboto_medium" />
 
                 <CheckBox
                     android:id="@+id/checkbox_dark_mode"
@@ -198,7 +198,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:fontFamily="sans-serif-medium"
+                        android:fontFamily="@font/roboto_medium"
                         android:text="@string/Notification"
                         android:layout_marginStart="20dp"
                         android:textSize="20sp"
@@ -236,7 +236,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="@string/manange_privacy"
                     android:layout_marginStart="20dp"
                     android:textSize="20sp"
@@ -270,7 +270,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="sans-serif-medium"
+                    android:fontFamily="@font/roboto_medium"
                     android:text="@string/logout"
                     android:layout_marginStart="20dp"
                     android:textColor="@android:color/black"

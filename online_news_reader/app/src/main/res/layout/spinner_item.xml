@@ -4,4 +4,5 @@
     android:layout_height="wrap_content"
     android:textColor="@color/black"
     android:padding="3dp"
+    android:fontFamily="@font/roboto_medium"
     android:textSize="19sp"/>
