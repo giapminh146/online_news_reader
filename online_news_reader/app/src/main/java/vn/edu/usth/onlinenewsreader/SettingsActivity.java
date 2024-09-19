@@ -63,7 +63,7 @@ public class SettingsActivity extends AppCompatActivity {
         LinearLayout account_setting = findViewById(R.id.account_setting_layout);
 
         account_setting.setOnClickListener(view -> {
-            Intent intent = new Intent(SettingsActivity.this, AccountActivity.class);
+            Intent intent = new Intent(SettingsActivity.this, ProfileActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         });

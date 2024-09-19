@@ -25,13 +25,6 @@ public class MoreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.more_fragment, container, false);
 
-        // Initialize account button and textview
-        ImageButton accountButton = view.findViewById(R.id.accountButton);
-        TextView accountTextView = view.findViewById(R.id.accountText);
-        // Initialize settings button and textview
-        ImageButton settingsButton = view.findViewById(R.id.settingsButton);
-        TextView settingsTextView = view.findViewById(R.id.settingsText);
-
         ImageView article1Image = view.findViewById(R.id.imagearticle1);
         TextView titleText = view.findViewById(R.id.article2_title);
 
@@ -45,41 +38,12 @@ public class MoreFragment extends Fragment {
         titleText.setOnClickListener(navigateToReadingFragment);
         article1Image.setOnClickListener(navigateToReadingFragment);
 
-        accountButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), AccountActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
+        // Initialize account and settings buttons and textviews
+        setOnClickListener(view, R.id.accountButton, AccountActivity.class);
+        setOnClickListener(view, R.id.accountText, AccountActivity.class);
+        setOnClickListener(view, R.id.settingsButton, SettingsActivity.class);
+        setOnClickListener(view, R.id.settingsText, SettingsActivity.class);
 
-        accountTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), AccountActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
-
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), SettingsActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
-
-        settingsTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.setClass(getActivity(), SettingsActivity.class);
-                getActivity().startActivity(intent);
-            }
-        });
 
         ImageButton[] bookmarkButtons = {
                 view.findViewById(R.id.bookmark_button),
@@ -107,4 +71,11 @@ public class MoreFragment extends Fragment {
         return view;
     }
 
+    // Helper method to set OnClickListener
+    private void setOnClickListener(View view, int viewId, Class<?> targetActivity) {
+        view.findViewById(viewId).setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), targetActivity);
+            startActivity(intent);
+        });
+    }
 }
