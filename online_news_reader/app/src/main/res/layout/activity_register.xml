@@ -9,6 +9,10 @@
     android:padding="16dp"
     android:background="@color/white">
 
+    <include
+        layout="@layout/bar">
+    </include>
+
     <!-- FrameLayout to hold the registration form -->
     <FrameLayout
         android:layout_width="match_parent"
@@ -106,17 +110,31 @@
                 android:background="@drawable/rounded_btn_blue"
                 />
 
-            <!-- TextView to navigate users back to login if they already have an account -->
-            <TextView
-                android:id="@+id/txtLogin"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="@string/already_have_account_login"
-                android:textSize="18sp"
-                android:textColor="@color/black"/>
+                android:orientation="horizontal">
+                <!-- TextView to navigate users back to login if they already have an account -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:text="Already have account?"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"/>
+
+                <TextView
+                    android:id="@+id/txtLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="-15dp"
+                    android:text="Login"
+                    android:textSize="18sp"
+                    android:textColor="@color/custom_blue"/>
+
+            </LinearLayout>
+
         </LinearLayout>
-
     </FrameLayout>
-
 </LinearLayout>

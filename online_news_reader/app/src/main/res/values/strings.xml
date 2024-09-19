@@ -178,4 +178,10 @@
     <string name="tablayout" />
     <string name="viewpager" />
     <string name="usthnews">USTH News</string>
+    <string name="acc">Account Setting</string>
+    <string name="Notification">Notifications</string>
+    <string name="note">Turn on breaking news notifications. To receive these, enable notifications in your device settings.</string>
+    <string name="manange_privacy">Manage Privacy</string>
+    <string name="Credit">Version v1.0.0\nUSTH News</string>
+    <string name="share">Share</string>
 </resources>

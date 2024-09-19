@@ -1,58 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <FrameLayout
+        android:id="@+id/fragment_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/header_fragment"
-        android:layout_gravity="top"/>
+        android:layout_height="wrap_content" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/custom_blue"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabTextColor="@color/white"
         app:tabIndicatorColor="@color/red"
-        app:tabIndicatorHeight="4dp">
-    </com.google.android.material.tabs.TabLayout>
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
+        app:tabIndicatorHeight="4dp"
+        app:tabTextColor="@color/white" />
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-    </androidx.viewpager.widget.ViewPager>
+        android:layout_weight="1"
+        android:id="@+id/view_pager_container">
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
 
-    <FrameLayout
-        android:id="@+id/empty_fragment"
+    <LinearLayout
+        android:id="@+id/menu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
+        android:layout_height="50dp"
+        android:orientation="vertical">
 
-    <!-- Reading Fragment -->
-    <FrameLayout
-        android:id="@+id/fragment_reading1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
-    <!-- More Fragment -->
-    <FrameLayout
-        android:id="@+id/fragment_more"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:visibility="gone"
-        android:layout_weight="1"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:baselineAligned="false"
+            android:gravity="bottom"
+            android:orientation="horizontal">
 
-    <!-- Menu Fragment fixed at the bottom -->
-    <FrameLayout
-        android:id="@+id/fragment_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom" />
+            <!-- Home Button -->
+            <LinearLayout
+                android:id="@+id/homeLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_home"
+                android:gravity="center"
+                android:orientation="vertical">
 
+                <ImageButton
+                    android:id="@+id/homeButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_home_border" />
+
+                <TextView
+                    android:id="@+id/homeTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-2dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="Home"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+
+            <!-- More button -->
+            <LinearLayout
+                android:id="@+id/moreLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/ripple_more"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/moreButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_more_border" />
+
+                <TextView
+                    android:id="@+id/moreTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-2dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="More"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

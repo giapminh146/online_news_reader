@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/background_light">
+
+    <include
+        layout="@layout/bar">
+    </include>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/oval_button_grey"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <!-- Settings Header -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:padding="2dp">
+
+                <LinearLayout
+                    android:layout_width="340dp"
+                    android:layout_height="54dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="7dp"
+                        android:background="@null"
+                        android:contentDescription="@string/setting"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_settings_black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="2dp"
+                        android:text="@string/settings"
+                        android:textColor="@color/custom_blue"
+                        android:textSize="25sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Account Settings -->
+
+            <LinearLayout
+                android:id="@+id/account_setting_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="20dp"
+                android:background="@drawable/oval_button_grey"
+                android:backgroundTint="@color/light_blue">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/acc"
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/smaller_arrow_icon"
+                    android:layout_marginEnd="20dp"/>
+            </LinearLayout>
+
+            <!-- Language Select -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:paddingVertical="20dp"
+                android:background="@drawable/oval_button_grey"
+                android:backgroundTint="@color/light_blue">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/language_select"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium" />
+
+                <Spinner
+                    android:id="@+id/language_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/languages"
+                    android:layout_marginEnd="20dp"
+                    android:backgroundTint="@color/custom_blue" />
+            </LinearLayout>
+
+            <!-- Dark Mode -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/oval_button_grey"
+                android:paddingVertical="15dp"
+                android:backgroundTint="@color/light_blue">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/dark_mode"
+                    android:layout_marginStart="20dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/roboto_medium" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dark_mode"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:buttonTint="@color/custom_blue"
+                    android:layout_marginEnd="20dp"/>
+            </LinearLayout>
+
+            <!-- Notifications -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="20dp"
+                android:background="@drawable/oval_button_grey"
+                android:backgroundTint="@color/light_blue">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/Notification"
+                        android:layout_marginStart="20dp"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/black" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_notifications"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:trackTint="@color/white"
+                        android:layout_marginEnd="20dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Manage Privacy -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:paddingVertical="20dp"
+                android:background="@drawable/oval_button_grey"
+                android:backgroundTint="@color/light_blue">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/manange_privacy"
+                    android:layout_marginStart="20dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/smaller_arrow_icon"
+                    android:layout_marginEnd="20dp"/>
+            </LinearLayout>
+
+            <!-- Logout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/oval_button_grey"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:backgroundTint="@color/light_blue">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/logout"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_logout"
+                    android:layout_marginEnd="20dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="20dp"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/Credit"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="19sp" />
+
+    </LinearLayout>
+</LinearLayout>

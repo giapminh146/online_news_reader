@@ -4,10 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReadingFragment1"
     android:background="@color/white"
     android:orientation="vertical">
-    
+
+    <include
+        layout="@layout/appbar">
+    </include>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -17,6 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <FrameLayout
+                android:id="@+id/fragment_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -62,7 +70,7 @@
                 android:text="Published 10/9/2024"
                 android:textSize="15sp"
                 android:textColor="@color/black"/>
-            
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
@@ -95,7 +103,7 @@
                 android:layout_height="200dp"
                 android:src="@drawable/article1_reading"
                 android:layout_marginBottom="10dp"/>
-            
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

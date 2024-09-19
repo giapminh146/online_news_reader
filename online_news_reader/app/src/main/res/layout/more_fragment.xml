@@ -1,245 +1,253 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_more"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
     android:background="@color/white">
 
+    <FrameLayout
+        android:id="@+id/fragment_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!-- Scrollable content area -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:gravity="center">
-
-        <ImageButton
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:contentDescription="@string/account_icon"
-            android:src="@drawable/ic_account"
-            android:layout_marginStart="-70dp"
-            android:scaleType="fitCenter"
-            android:background="@null"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/accountButton">
-        </ImageButton>
-
-        <TextView
-            android:id="@+id/accountText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Account"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            android:layout_marginEnd="15dp"
-            android:padding="10dp"
-            android:clickable="true"
-            android:focusable="true"/>
-
-        <ImageButton
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:contentDescription="@string/setting"
-            android:src="@drawable/ic_settings"
-            android:layout_marginStart="40dp"
-            android:scaleType="fitCenter"
-            android:background="@null"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/settingsButton">
-        </ImageButton>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/settings"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/black"
-            android:layout_gravity="center"
-            android:layout_marginEnd="-70dp"
-            android:padding="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:id="@+id/settingsText">
-        </TextView>
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="15dp"
-        android:background="@color/black" />
-
-    <!-- Scrollable menu section -->
-    <ScrollView
-        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:gravity="center"
+            android:background="@color/custom_blue">
 
-            <!-- Menu items -->
+            <ImageButton
+                android:id="@+id/accountButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="5dp"
+                android:contentDescription="@string/account_icon"
+                android:src="@drawable/ic_account"
+                android:layout_marginStart="-70dp"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:clickable="true"
+                android:focusable="true" />
+
             <TextView
-                android:id="@+id/news_section"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Saved articles"
+                android:id="@+id/accountText"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:text="@string/account"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
-                android:paddingVertical="8dp" />
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:clickable="true"
+                android:focusable="true" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="@color/black" />
+            <ImageButton
+                android:id="@+id/settingsButton"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="5dp"
+                android:contentDescription="@string/setting"
+                android:src="@drawable/ic_settings"
+                android:layout_marginStart="20dp"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:clickable="true"
+                android:focusable="true" />
+
+            <TextView
+                android:id="@+id/settingsText"
+                android:layout_width="100dp"
+                android:layout_height="48dp"
+                android:text="@string/settings"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:layout_marginEnd="-70dp"
+                android:padding="10dp"
+                android:clickable="true"
+                android:focusable="true" />
+        </LinearLayout>
+
+        <!-- Scrollable menu section -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <!-- Menu items -->
+                <TextView
+                    android:id="@+id/news_section"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="90dp"
-                        android:src="@drawable/article2"
-                        android:scaleType="fitXY"
-                        android:contentDescription="@string/first"
-                        android:adjustViewBounds="true"
-                        android:layout_marginEnd="10dp" >
-                    </ImageView>
-
-                    <TextView
-                        android:layout_width="190dp"
-                        android:layout_height="wrap_content"
-                        android:textStyle="bold"
-                        android:textSize="18sp"
-                        android:text="@string/article2_title"
-                        android:textColor="@color/black"/>
-
-                    <ImageButton
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:adjustViewBounds="true"
-                        android:layout_marginEnd="10dp"
-                        android:background="@null"
-                        android:contentDescription="@string/bookmark_1"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/ic_bookmark_filled"
-                        android:padding="12dp">
-                    </ImageButton>
-                </LinearLayout>
+                    android:text="@string/saved_articles"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:paddingVertical="8dp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginTop="15dp"
-                    android:background="#D3D3D3" />
+                    android:background="@color/black" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
+                    android:orientation="vertical">
 
-                    <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="90dp"
-                        android:src="@drawable/article3"
-                        android:contentDescription="@string/second"
-                        android:scaleType="fitXY"
-                        android:adjustViewBounds="true"
-                        android:layout_marginEnd="10dp" >
-                    </ImageView>
-
-                    <TextView
-                        android:layout_width="190dp"
+                    <!-- Article items -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/article3_title"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center">
 
-                    <ImageView
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:layout_marginEnd="10dp"
-                        android:adjustViewBounds="true"
-                        android:contentDescription="@string/bookmark_2"
-                        android:scaleType="fitCenter"
-                        android:background="@null"
-                        android:src="@drawable/ic_bookmark_filled"
-                        android:padding="12dp">
-                    </ImageView>
-                </LinearLayout>
+                        <ImageView
+                            android:id="@+id/imagearticle1"
+                            android:layout_width="130dp"
+                            android:layout_height="90dp"
+                            android:src="@drawable/article2"
+                            android:scaleType="fitXY"
+                            android:contentDescription="@string/first"
+                            android:adjustViewBounds="true"
+                            android:layout_marginEnd="10dp" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="15dp"
-                    android:background="#D3D3D3" />
+                        <TextView
+                            android:id="@+id/article2_title"
+                            android:layout_width="190dp"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textSize="18sp"
+                            android:text="@string/article2_title"
+                            android:textColor="@color/black" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
+                        <ImageButton
+                            android:id="@+id/bookmark_button"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:adjustViewBounds="true"
+                            android:layout_marginEnd="10dp"
+                            android:background="@null"
+                            android:contentDescription="@string/bookmark_1"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_bookmark_filled"
+                            android:padding="8dp" />
+                    </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="130dp"
-                        android:layout_height="90dp"
-                        android:src="@drawable/a3"
-                        android:contentDescription="@string/third"
-                        android:scaleType="fitXY"
-                        android:adjustViewBounds="true"
-                        android:layout_marginEnd="10dp" >
-                    </ImageView>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="15dp"
+                        android:background="#D3D3D3" />
 
-                    <TextView
-                        android:layout_width="190dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
-                        android:text="@string/a3_title"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"/>
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
 
-                    <ImageButton
-                        android:layout_width="75dp"
-                        android:layout_height="75dp"
-                        android:layout_marginEnd="10dp"
-                        android:contentDescription="@string/bookmark_3"
-                        android:scaleType="fitCenter"
-                        android:background="@null"
-                        android:src="@drawable/ic_bookmark_filled"
-                        android:padding="12dp">
-                    </ImageButton>
+                        <ImageView
+                            android:layout_width="130dp"
+                            android:layout_height="90dp"
+                            android:src="@drawable/article3"
+                            android:contentDescription="@string/second"
+                            android:scaleType="fitXY"
+                            android:adjustViewBounds="true"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:layout_width="190dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/article3_title"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/bookmark_button2"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_marginEnd="10dp"
+                            android:adjustViewBounds="true"
+                            android:contentDescription="@string/bookmark_2"
+                            android:scaleType="fitCenter"
+                            android:background="@null"
+                            android:src="@drawable/ic_bookmark_filled"
+                            android:padding="8dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="15dp"
+                        android:background="#D3D3D3" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp">
+
+                        <ImageView
+                            android:layout_width="130dp"
+                            android:layout_height="90dp"
+                            android:src="@drawable/a3"
+                            android:contentDescription="@string/third"
+                            android:scaleType="fitXY"
+                            android:adjustViewBounds="true"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:layout_width="190dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:text="@string/a3_title"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/bookmark_button3"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="@string/bookmark_3"
+                            android:scaleType="fitCenter"
+                            android:background="@null"
+                            android:src="@drawable/ic_bookmark_filled"
+                            android:padding="8dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="15dp"
+                        android:background="#D3D3D3" />
                 </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="2dp"
-                    android:layout_marginTop="15dp"
-                    android:background="#D3D3D3" />
-
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
+    </LinearLayout>
 </LinearLayout>
