@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="16dp">
+
+    <include
+        layout="@layout/bar">
+    </include>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/oval_button_grey"
+        android:padding="16dp">
+
+        <!-- Profile Image Section -->
+        <ImageView
+            android:id="@+id/profile_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_profile"
+            android:layout_marginStart="80dp"
+            android:contentDescription="@string/profile_picture"
+            android:scaleType="centerCrop"
+            android:background="@drawable/circle_profile" />
+
+        <!-- Account Name Container -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval_button_grey"
+            android:padding="16dp"
+            android:layout_marginTop="150dp">
+
+            <TextView
+                android:id="@+id/boxed_account_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="8dp"
+                android:text="@string/example"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Account Email Container -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/oval_button_grey"
+            android:layout_marginTop="220dp"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/boxed_account_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="@string/example_gmail_com"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+
+        <!--    &lt;!&ndash; Edit Profile Button &ndash;&gt;-->
+            <Button
+                android:id="@+id/edit_profile_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_profile"
+                android:textSize="16sp"
+                android:layout_marginTop="300dp"
+                android:background="@drawable/rounded_btn_blue"
+                android:textColor="@android:color/white"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp" />
+
+        <!-- Logout Button -->
+        <!--    <Button-->
+        <!--        android:id="@+id/logout_button"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginBottom="32dp"-->
+        <!--        android:background="@drawable/rounded_btn_red"-->
+        <!--        android:padding="12dp"-->
+        <!--        android:text="@string/logout"-->
+        <!--        android:textColor="@android:color/white"-->
+        <!--        android:textSize="16sp" />-->
+
+    </FrameLayout>
+</LinearLayout>
