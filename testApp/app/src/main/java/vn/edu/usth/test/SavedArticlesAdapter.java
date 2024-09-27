@@ -11,30 +11,31 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import vn.edu.usth.test.Models.Article;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.NewsViewHolder> {
-    List<Article> articleList;
+import vn.edu.usth.test.Models.Article;
 
-    NewsRecyclerAdapter(List<Article> articleList) {
-        this.articleList = articleList;
+public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdapter.ViewHolder> {
+    private List<Article> savedArticles;
+
+    public SavedArticlesAdapter(List<Article> savedArticles) {
+        this.savedArticles = savedArticles;
     }
 
     @NonNull
     @Override
-    public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        // Call the frame that will show in the main screen
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_recycler_row,parent,false);
-        return new NewsViewHolder(view);
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.news_recycler_row, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
-        Article article = articleList.get(position);
-        holder.titleTextView.setText(article.getTitle()); //Sets the article's title in the TextView
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Article article = savedArticles.get(position);
+        holder.titleTextView.setText(article.getTitle());
         holder.sourceTextView.setText(article.getSource().getName()); //Display the source of the article
         Picasso.get().load(article.getUrlToImage())
                 .error(R.drawable.ic_email) //Image will show when missing or fails to load
@@ -66,21 +67,17 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         });
     }
 
-    void updateData(List<Article> data) {
-        articleList.clear();
-        articleList.addAll(data);
-    }
     @Override
     public int getItemCount() {
-        return articleList.size(); //Tells the adapter how many items to display in RecycleView
+        return savedArticles.size();
     }
 
-    static class NewsViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView, sourceTextView;
         ImageView imageView;
         ImageButton bookmarkButton;
 
-        public NewsViewHolder(@NonNull View itemView) {
+        public ViewHolder(View itemView) {
             super(itemView);
             titleTextView = itemView.findViewById(R.id.text_title);
             sourceTextView = itemView.findViewById(R.id.text_source);

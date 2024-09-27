@@ -3,7 +3,6 @@ package vn.edu.usth.test;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -12,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
-import com.kwabenaberko.newsapilib.NewsApiClient;
-import com.kwabenaberko.newsapilib.models.Article;
-import com.kwabenaberko.newsapilib.models.request.TopHeadlinesRequest;
-import com.kwabenaberko.newsapilib.models.response.ArticleResponse;
+
+import vn.edu.usth.test.Models.Article;
+import vn.edu.usth.test.Models.request.TopHeadlinesRequest;
+import vn.edu.usth.test.Models.response.ArticleResponse;
 
 import java.util.ArrayList;
 import java.util.List;

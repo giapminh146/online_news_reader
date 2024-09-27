@@ -2,10 +2,11 @@ package vn.edu.usth.test;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -19,6 +20,11 @@ public class MoreActivity extends AppCompatActivity {
         //Call the header
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragment_header, new HeaderFragment()).commit();
+
+        RecyclerView savedArticlesRecyclerView = findViewById(R.id.recycleViewId);
+        SavedArticlesAdapter savedArticlesAdapter = new SavedArticlesAdapter(SavedArticlesManager.getSavedArticles());
+        savedArticlesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        savedArticlesRecyclerView.setAdapter(savedArticlesAdapter);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.navigation_more);
