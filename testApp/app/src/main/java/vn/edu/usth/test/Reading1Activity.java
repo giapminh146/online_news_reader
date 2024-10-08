@@ -23,9 +23,6 @@ public class Reading1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reading1);
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_header, new HeaderFragment()).commit();
-
         //Set up toolbar
         Toolbar toolbar = findViewById(R.id.myToolBar);
         setSupportActionBar(toolbar);

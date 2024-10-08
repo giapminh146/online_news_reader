@@ -1,10 +1,7 @@
 package vn.edu.usth.test;
 
-import vn.edu.usth.test.Models.request.EverythingRequest;
-import vn.edu.usth.test.Models.request.SourcesRequest;
 import vn.edu.usth.test.Models.request.TopHeadlinesRequest;
 import vn.edu.usth.test.Models.response.ArticleResponse;
-import vn.edu.usth.test.Models.response.SourcesResponse;
 import vn.edu.usth.test.Network.APIClient;
 import vn.edu.usth.test.Network.APIService;
 
@@ -30,12 +27,6 @@ public class NewsApiClient {
         mAPIService = APIClient.getAPIService();
         query = new HashMap<>();
         query.put("apiKey", apiKey);
-    }
-
-    //Callbacks
-    public interface SourcesCallback{
-        void onSuccess(SourcesResponse response);
-        void onFailure(Throwable throwable);
     }
 
     public interface ArticlesResponseCallback{
@@ -67,42 +58,6 @@ public class NewsApiClient {
         return query;
     }
 
-
-    //Get Sources
-    public void getSources(SourcesRequest sourcesRequest, final SourcesCallback callback){
-        query = createQuery();
-        query.put("category", sourcesRequest.getCategory());
-        query.put("language", sourcesRequest.getLanguage());
-        query.put("country", sourcesRequest.getCountry());
-
-        query.values().removeAll(Collections.singleton(null));
-
-
-        mAPIService.getSources(query)
-                .enqueue(new Callback<SourcesResponse>() {
-                    @Override
-                    public void onResponse(Call<SourcesResponse> call, retrofit2.Response<SourcesResponse> response) {
-                        if (response.code() == HttpURLConnection.HTTP_OK){
-                            callback.onSuccess(response.body());
-                        }
-
-                        else{
-                            try {
-                                callback.onFailure(errMsg(response.errorBody().string()));
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<SourcesResponse> call, Throwable throwable) {
-                        callback.onFailure(throwable);
-                    }
-                });
-    }
-
-
     public void getTopHeadlines(TopHeadlinesRequest topHeadlinesRequest, final ArticlesResponseCallback callback){
 
 
@@ -120,46 +75,6 @@ public class NewsApiClient {
 
 
         mAPIService.getTopHeadlines(query)
-                .enqueue(new Callback<ArticleResponse>() {
-                    @Override
-                    public void onResponse(Call<ArticleResponse> call, retrofit2.Response<ArticleResponse> response) {
-                        if (response.code() == HttpURLConnection.HTTP_OK){
-                            callback.onSuccess(response.body());
-                        }
-
-                        else{
-                            try {
-                                callback.onFailure(errMsg(response.errorBody().string()));
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<ArticleResponse> call, Throwable throwable) {
-                        callback.onFailure(throwable);
-                    }
-                });
-    }
-
-
-    public void getEverything(EverythingRequest everythingRequest, final ArticlesResponseCallback callback){
-        query = createQuery();
-        query.put("q", everythingRequest.getQ());
-        query.put("sources", everythingRequest.getSources());
-        query.put("domains", everythingRequest.getDomains());
-        query.put("from", everythingRequest.getFrom());
-        query.put("to", everythingRequest.getTo());
-        query.put("language", everythingRequest.getLanguage());
-        query.put("sortBy", everythingRequest.getSortBy());
-        query.put("pageSize", everythingRequest.getPageSize());
-        query.put("page", everythingRequest.getPage());
-
-        query.values().removeAll(Collections.singleton(null));
-        query.values().removeAll(Collections.singleton("null"));
-
-        mAPIService.getEverything(query)
                 .enqueue(new Callback<ArticleResponse>() {
                     @Override
                     public void onResponse(Call<ArticleResponse> call, retrofit2.Response<ArticleResponse> response) {
