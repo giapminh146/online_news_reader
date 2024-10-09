@@ -87,7 +87,7 @@
                 <ImageView
                     android:layout_width="27dp"
                     android:layout_height="27dp"
-                    android:src="@drawable/smaller_arrow_icon"
+                    android:src="@drawable/baseline_arrow_right_24"
                     android:layout_marginEnd="20dp"/>
             </LinearLayout>
 
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:entries="@array/languages"
                     android:layout_marginEnd="20dp"
-                    android:backgroundTint="@color/custom_blue" />
+                    android:backgroundTint="@color/white" />
             </LinearLayout>
 
             <!-- Dark Mode -->
@@ -146,7 +146,7 @@
                     android:id="@+id/checkbox_dark_mode"
                     android:layout_width="27dp"
                     android:layout_height="27dp"
-                    android:buttonTint="@color/custom_blue"
+                    android:buttonTint="@color/white"
                     android:layout_marginEnd="20dp"/>
             </LinearLayout>
 
@@ -209,7 +209,7 @@
                 <ImageView
                     android:layout_width="27dp"
                     android:layout_height="27dp"
-                    android:src="@drawable/smaller_arrow_icon"
+                    android:src="@drawable/baseline_arrow_right_24"
                     android:layout_marginEnd="20dp"/>
             </LinearLayout>
 

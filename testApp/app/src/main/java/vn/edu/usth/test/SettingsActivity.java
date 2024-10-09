@@ -2,6 +2,7 @@ package vn.edu.usth.test;
 
 import android.content.Intent;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -54,6 +55,12 @@ public class SettingsActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(false);
         // Create the back button and return the page before
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        toolbar.setNavigationIcon(R.drawable.arrow_back);
+        Drawable drawable = toolbar.getNavigationIcon();
+        if (drawable != null) {
+            drawable.setColorFilter(getResources().getColor(android.R.color.white), PorterDuff.Mode.SRC_ATOP);
+        }
 
 
         // Click on account setting to login (account) activity
