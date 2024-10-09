@@ -28,7 +28,8 @@
             android:exported="false" />
         <activity
             android:name=".SettingsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="locale|orientation"/>
         <activity
             android:name=".RegisterActivity"
             android:exported="false" />

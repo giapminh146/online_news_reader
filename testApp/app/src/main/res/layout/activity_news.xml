@@ -68,7 +68,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="5dp"
-        app:cardCornerRadius="15dp">
+        app:cardCornerRadius="15dp"
+        android:background="@color/white">
 
         <androidx.appcompat.widget.SearchView
             android:id="@+id/search_view"
@@ -78,8 +79,7 @@
             android:layout_toStartOf="@id/filter_button"
             android:layout_centerVertical="true"
             app:queryHint="Search articles"
-            android:layout_weight="1"
-            android:background="@color/white" />
+            android:layout_weight="1" />
 
         <!-- Filter Button or Spinner for filter options -->
         <ImageButton

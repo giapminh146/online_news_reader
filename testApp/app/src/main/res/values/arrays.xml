@@ -2,7 +2,6 @@
 <resources>
     <string-array name="languages">
         <item>English</item>
-        <item>Francais</item>
-        <item>Vietnamese</item>
+        <item>Tiếng Việt</item>
     </string-array>
 </resources>
