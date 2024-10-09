@@ -8,7 +8,8 @@
     <FrameLayout
         android:id="@+id/fragment_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+    </FrameLayout>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -16,6 +17,7 @@
         android:background="@color/custom_blue"
         android:id="@+id/tab_layout"
         android:scrollbars="none">
+
         <com.google.android.material.tabs.TabLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,6 +25,7 @@
             app:tabIndicatorColor="@color/red"
             app:tabIndicatorHeight="4dp"
             app:tabTextColor="@color/white">
+
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,6 +63,37 @@
                 android:id="@+id/Tab7Sports"/>
         </com.google.android.material.tabs.TabLayout>
     </HorizontalScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        app:cardCornerRadius="15dp">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/filter_button"
+            android:layout_centerVertical="true"
+            app:queryHint="Search articles"
+            android:layout_weight="1"
+            android:background="@color/white" />
+
+        <!-- Filter Button or Spinner for filter options -->
+        <ImageButton
+            android:id="@+id/filter_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/baseline_filter_alt_24"
+            android:contentDescription="@string/filter" />
+
+    </RelativeLayout>
+
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"

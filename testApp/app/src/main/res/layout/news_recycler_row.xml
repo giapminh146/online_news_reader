@@ -7,7 +7,8 @@
     android:layout_height="120dp"
     android:layout_margin="8dp"
     android:background="@color/white"
-    app:cardElevation="8dp">
+    app:cardElevation="8dp"
+    app:cardCornerRadius="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +25,7 @@
             android:layout_height="100dp"
             android:layout_weight="1"
             android:layout_gravity="center"
+            app:cardCornerRadius="15dp"
             android:scaleType="fitXY"
             android:contentDescription="@string/news_image" />
 
@@ -73,7 +75,8 @@
                 android:id="@+id/text_source"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/custom_blue"
+                android:textStyle="bold"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp" />
         </LinearLayout>

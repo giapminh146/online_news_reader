@@ -5,6 +5,7 @@ import vn.edu.usth.test.Models.response.ArticleResponse;
 import vn.edu.usth.test.Network.APIClient;
 import vn.edu.usth.test.Network.APIService;
 
+import android.util.Log;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -52,19 +53,18 @@ public class NewsApiClient {
         return throwable;
     }
 
-    private Map<String, String> createQuery(){
+    private Map<String, String> createQuery(TopHeadlinesRequest topHeadlinesRequest){
         query = new HashMap<>();
         query.put("apiKey", mApiKey);
-        return query;
-    }
-
-    public void getTopHeadlines(TopHeadlinesRequest topHeadlinesRequest, final ArticlesResponseCallback callback){
-
-
-        query = createQuery();
-        query.put("country", topHeadlinesRequest.getCountry());
-        query.put("language", topHeadlinesRequest.getLanguage());
-        query.put("category", topHeadlinesRequest.getCategory());
+        if (topHeadlinesRequest.getCountry() != null && !topHeadlinesRequest.getCountry().equals("All")) {
+            query.put("country", topHeadlinesRequest.getCountry());
+        }
+        if (topHeadlinesRequest.getLanguage() != null && !topHeadlinesRequest.getLanguage().equals("All")) {
+            query.put("language", topHeadlinesRequest.getLanguage());
+        }
+        if (topHeadlinesRequest.getCategory() != null && !topHeadlinesRequest.getCategory().equals("All")) {
+            query.put("category", topHeadlinesRequest.getCategory());
+        }
         query.put("sources", topHeadlinesRequest.getSources());
         query.put("q", topHeadlinesRequest.getQ());
         query.put("pageSize", topHeadlinesRequest.getPageSize());
@@ -72,7 +72,21 @@ public class NewsApiClient {
 
         query.values().removeAll(Collections.singleton(null));
         query.values().removeAll(Collections.singleton("null"));
+        query.values().removeAll(Collections.singleton(""));
+        return query;
+    }
 
+    public void getTopHeadlines(TopHeadlinesRequest topHeadlinesRequest, final ArticlesResponseCallback callback){
+        Map<String, String> query = createQuery(topHeadlinesRequest);
+        query.values().removeAll(Collections.singleton(null));
+
+        //For check the link
+        StringBuilder url = new StringBuilder("https://newsapi.org/v2/top-headlines?");
+        for (Map.Entry<String, String> entry : query.entrySet()) {
+            url.append(entry.getKey()).append("=").append(entry.getValue()).append("&");
+        }
+        String urlString = url.toString().replaceAll("&$", "");
+        Log.d("NewsApiClient", "Request URL: " + url.toString());
 
         mAPIService.getTopHeadlines(query)
                 .enqueue(new Callback<ArticleResponse>() {
