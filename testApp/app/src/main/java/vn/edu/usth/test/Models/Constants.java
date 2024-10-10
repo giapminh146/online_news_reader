@@ -15,4 +15,9 @@ public class Constants {
     public static final String[] CATEGORIES = {
             "general", "business", "entertainment", "health", "science", "sports", "technology"
     };
+
+    // Vietnamese categories
+    public static final String[] CATEGORIES_VI = {
+            "Tổng hợp", "Kinh doanh", "Giải trí", "Sức khỏe", "Khoa học", "Thể thao", "Công nghệ"
+    };
 }

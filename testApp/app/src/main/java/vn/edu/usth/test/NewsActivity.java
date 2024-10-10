@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -48,80 +47,19 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news);
 
-        TabLayout tabLayout = findViewById(R.id.TabLayoutsMenu);
-
-        //Set addOnTabSelectedListener to tabLayout: each tab item opens corresponding category
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                CharSequence tabText = tab.getText();
-                String tabTextString = tabText != null ? tabText.toString() : "";//Check if tab Item text is null, if null return ""
-                getNews(tabTextString, null);
-
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-            }
-        });
-
-        //Call the recycleView id
-        recyclerView = findViewById(R.id.recycleViewId);
+        setupSearchVew();
+        setupBottomNav();
+        setupTabLayout();
         setupRecyclerView();
+        setupSwipeRefresh();
+        setupFilterButton();
+
         getNews("General", null);
 
-        //Call the header
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_header, new HeaderFragment()).commit();
+        // Set header fragment
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_header, new HeaderFragment()).commit();
 
-        //Call swipe to refresh
-        swipeRefreshLayout = findViewById(R.id.swipe);
-        swipeRefreshLayout.setOnRefreshListener(this);
-
-        //Call menu
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
-
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            int itemId = item.getItemId();
-            if (itemId == R.id.navigation_home) {
-                return true;
-            } else if (itemId == R.id.navigation_more) {
-                startActivity(new Intent(getApplicationContext(), MoreActivity.class));
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                finish();
-                return true;
-            }
-            return false;
-        });
-
-        //Call search view
-        searchView = findViewById(R.id.search_view);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                getNews("General", query);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-
-        //Click to show filter dialog
-        filterBtn = findViewById(R.id.filter_button);
-        filterBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                filterBottomSheet();
-            }
-        });
     }
 
     //Initially selected items (by default show all)
@@ -135,10 +73,18 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
         Spinner languageSpinner = view.findViewById(R.id.languageSpinner);
         Button applyBtn = view.findViewById(R.id.applyBtn);
 
+        String currentLanguage = getResources().getConfiguration().locale.getLanguage();
+        ArrayAdapter<String> adapterCountries, adapterCategories, adapterLanguages;
         //Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<String> adapterCountries = new ArrayAdapter<>(this, R.layout.spinner_item, Constants.COUNTRIES);
-        ArrayAdapter<String> adapterCategories = new ArrayAdapter<>(this, R.layout.spinner_item, Constants.CATEGORIES);
-        ArrayAdapter<String> adapterLanguages = new ArrayAdapter<>(this, R.layout.spinner_item, Constants.LANGUAGES);
+        if (currentLanguage.equals("vi")) {
+            adapterCountries = new ArrayAdapter<>(this, R.layout.spinner_item, Constants.COUNTRIES);
+            adapterCategories = new ArrayAdapter<>(this, R.layout.spinner_item, Constants.CATEGORIES_VI);
+            adapterLanguages = new ArrayAdapter<>(this, R.layout.spinner_item, Constants.LANGUAGES);
+        } else {
+            adapterCountries = new ArrayAdapter<>(this, R.layout.spinner_item, Constants.COUNTRIES);
+            adapterCategories = new ArrayAdapter<>(this, R.layout.spinner_item, Constants.CATEGORIES);
+            adapterLanguages = new ArrayAdapter<>(this, R.layout.spinner_item, Constants.LANGUAGES);
+        }
         //Specify the layout to use when the list of choices appears
         adapterCountries.setDropDownViewResource(R.layout.spinner_item);
         adapterCategories.setDropDownViewResource(R.layout.spinner_item);
@@ -199,26 +145,50 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
             public void onClick(View view) {
                 //Dismiss dialog
                 bottomSheetDialog.dismiss();
-                getNews(selectedCategory, null);
+                String englishCategory = translateCategoryToEnglish(selectedCategory);
+                Log.d("FILTER_TAG", "Selected Category: " + englishCategory);
+                getNews(englishCategory, null);
             }
         });
     }
 
     // Setup the adapter for the RecycleView
-    void setupRecyclerView() {
+    private void setupRecyclerView() {
+        recyclerView = findViewById(R.id.recycleViewId);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new NewsRecyclerAdapter(articleList);
         recyclerView.setAdapter(adapter);
     }
 
+    private String translateCategoryToEnglish(String category) {
+        if (category.equals("Tổng hợp") || category.equals("general")) {
+            return "general";
+        } else if (category.equals("Kinh doanh") || category.equals("business")) {
+            return "business";
+        } else if (category.equals("Giải trí") || category.equals("entertainment")) {
+            return "entertainment";
+        } else if (category.equals("Sức khỏe") || category.equals("health")) {
+            return "health";
+        } else if (category.equals("Khoa học") || category.equals("science")) {
+            return "science";
+        } else if (category.equals("Thể thao") || category.equals("sports")) {
+            return "sports";
+        } else if (category.equals("Công nghệ") || category.equals("technology")) {
+            return "technology";
+        } else {
+            return "general";
+        }
+    }
+
     // The method is called NewsApi
     void getNews(String Category, String query) {
+        String englishCategory = translateCategoryToEnglish(Category);
         //Call the ApiKey
         NewsApiClient newsApiClient = new NewsApiClient("3ebfc3d8ab8945cc92c261a170d8ac96");
         newsApiClient.getTopHeadlines(
                 new TopHeadlinesRequest.Builder()
                         .language(selectedLanguage) //Take the news in each Language
-                        .category(Category) //Take the news for each Category
+                        .category(englishCategory) //Take the news for each Category
                         .country(selectedCountry)
                         .q(query)
                         .build(),
@@ -253,6 +223,81 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
                     }
                 }
         );
+    }
+
+    private void setupSearchVew() {
+        //Call search view
+        searchView = findViewById(R.id.search_view);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                getNews("General", query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+    }
+
+    private void setupBottomNav() {
+        //Call menu
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+
+        bottomNavigationView.setOnItemSelectedListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.navigation_home) {
+                return true;
+            } else if (itemId == R.id.navigation_more) {
+                startActivity(new Intent(getApplicationContext(), MoreActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
+                return true;
+            }
+            return false;
+        });
+    }
+
+    private void setupTabLayout() {
+        TabLayout tabLayout = findViewById(R.id.TabLayoutsMenu);
+
+        //Set addOnTabSelectedListener to tabLayout: each tab item opens corresponding category
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                CharSequence tabText = tab.getText();
+                String tabTextString = tabText != null ? tabText.toString() : "";//Check if tab Item text is null, if null return ""
+                String englishCategory = translateCategoryToEnglish(tabTextString);
+                getNews(englishCategory, null); // Call with the English category name
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+    }
+
+    private void setupSwipeRefresh() {
+        swipeRefreshLayout = findViewById(R.id.swipe);
+        swipeRefreshLayout.setOnRefreshListener(this);
+    }
+
+    private void setupFilterButton() {
+        //Click to show filter dialog
+        filterBtn = findViewById(R.id.filter_button);
+        filterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                filterBottomSheet();
+            }
+        });
     }
 
     //The method to refresh and get new news articles

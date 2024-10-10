@@ -47,7 +47,7 @@
     <string name="manange_privacy">Quản lý quyền riêng tư</string>
     <string name="Credit">Phiên bản v1.0.0\nUSTH News</string>
     <string name="share">Chia sẻ</string>
-    <string name="general">Tổng quan</string>
+    <string name="general">Tổng hợp</string>
     <string name="business">Kinh doanh</string>
     <string name="technology">Công nghệ</string>
     <string name="entertainment">Giải trí</string>
@@ -59,4 +59,9 @@
     <string name="more">Thêm</string>
     <string name="title_home">Trang chủ</string>
     <string name="email">Email</string>
+    <string name="filter_news_sources">Lọc nguồn tin tức</string>
+    <string name="country">Quốc gia</string>
+    <string name="category">Danh mục</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="apply">Áp dụng</string>
 </resources>

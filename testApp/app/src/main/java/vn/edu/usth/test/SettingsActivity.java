@@ -34,6 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+
         Spinner languageSpinner = findViewById(R.id.language_select);
 
         // Set up the adapter for the spinner
@@ -46,12 +47,13 @@ public class SettingsActivity extends AppCompatActivity {
         languageSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position == 1) {
-                    // Change to English
-                    setLocale("en");
-                } else if (position == 2) {
-                    // Change to Vietnamese
-                    setLocale("vi");
+                switch (position) {
+                    case 1: // English
+                        changeLanguage("en");
+                        break;
+                    case 2: // Vietnamese
+                        changeLanguage("vi");
+                        break;
                 }
             }
 
@@ -62,17 +64,8 @@ public class SettingsActivity extends AppCompatActivity {
 
         SwitchCompat mySwitch = findViewById(R.id.switch_notifications);
         // Set the default color to red
-        mySwitch.getThumbDrawable().setColorFilter(ContextCompat.getColor(SettingsActivity.this, R.color.light_red), PorterDuff.Mode.SRC_IN);
-        mySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    mySwitch.getThumbDrawable().setColorFilter(ContextCompat.getColor(SettingsActivity.this, R.color.blue), PorterDuff.Mode.SRC_IN);
-                } else {
-                    mySwitch.getThumbDrawable().setColorFilter(ContextCompat.getColor(SettingsActivity.this, R.color.light_red), PorterDuff.Mode.SRC_IN);
-                }
-            }
-        });
+        applySwitchColor(mySwitch, false); // Set initial color
+        mySwitch.setOnCheckedChangeListener((buttonView, isChecked) -> applySwitchColor(mySwitch, isChecked));
 
         // Set up the toolbar
         Toolbar toolbar = findViewById(R.id.backButton);
@@ -98,13 +91,28 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
+    // Method to change language and restart NewsActivity
+    private void changeLanguage(String lang) {
+        setLocale(lang);
+        Intent intent = new Intent(SettingsActivity.this, NewsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    //
     private void setLocale(String lang) {
-        Locale myLocale = new Locale(lang);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
+        Locale myLocale = new Locale(lang);  // Create a new Locale object with the language code provided
+        Resources res = getResources(); // Get the Resources object for the app
+        DisplayMetrics dm = res.getDisplayMetrics(); // Get the display metrics of the device
+        Configuration conf = res.getConfiguration(); // Get the current configuration object
+        conf.setLocale(myLocale);  // Set the new language for the configuration
+        res.updateConfiguration(conf, dm); // Update the app's resources configuration with the new settings and display metrics
+    }
+
+    // Method to apply color based on switch state
+    private void applySwitchColor(SwitchCompat switchCompat, boolean isChecked) {
+        int color = isChecked ? R.color.blue : R.color.light_red;
+        switchCompat.getThumbDrawable().setColorFilter(ContextCompat.getColor(SettingsActivity.this, color), PorterDuff.Mode.SRC_IN);
     }
 
     @Override

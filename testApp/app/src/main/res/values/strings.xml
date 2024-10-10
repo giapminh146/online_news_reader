@@ -45,13 +45,13 @@
     <string name="manange_privacy">Manage Privacy</string>
     <string name="Credit">Version v1.0.0\nUSTH News</string>
     <string name="share">Share</string>
-    <string name="general">General</string>
-    <string name="business">Business</string>
-    <string name="technology">Technology</string>
-    <string name="entertainment">Entertainment</string>
-    <string name="health">Health</string>
-    <string name="science">Science</string>
-    <string name="sports">Sports</string>
+    <string name="general">general</string>
+    <string name="business">business</string>
+    <string name="technology">technology</string>
+    <string name="entertainment">entertainment</string>
+    <string name="health">health</string>
+    <string name="science">science</string>
+    <string name="sports">sports</string>
     <string name="news_image">News Image</string>
     <string name="title_activity_bottom">BottomActivity</string>
     <string name="more">More</string>
@@ -59,4 +59,9 @@
     <string name="new_user">New User?</string>
     <string name="register_here">Register here</string>
     <string name="email">Email</string>
+    <string name="filter_news_sources">Filter News Sources</string>
+    <string name="country">Country</string>
+    <string name="category">Category</string>
+    <string name="language">Language</string>
+    <string name="apply">Apply</string>
 </resources>
