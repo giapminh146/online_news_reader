@@ -1,8 +1,10 @@
 package vn.edu.usth.test;
 
 
+import android.content.Context;
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.PorterDuff;
@@ -14,12 +16,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -28,16 +32,50 @@ import java.util.Locale;
 
 public class SettingsActivity extends AppCompatActivity {
     public static final String[] languages = {"Select","English", "Tiếng Việt"};
+    private CheckBox checkBoxDarkMode;
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Load the saved language from SharedPreferences
+        sharedPreferences = getSharedPreferences("MODE", Context.MODE_PRIVATE);
+        String lang = sharedPreferences.getString("selected_language", "en"); // default to English
+        setLocale(lang);
+
         setContentView(R.layout.activity_settings);
 
+        checkBoxDarkMode = findViewById(R.id.checkbox_dark_mode);
+        // Load dark mode before setting content view
+        boolean isDarkMode = sharedPreferences.getBoolean("night", false);
 
-        Spinner languageSpinner = findViewById(R.id.language_select);
+        if(isDarkMode){
+            checkBoxDarkMode.setChecked(true);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+        }
+
+        //A listener for the switch
+        checkBoxDarkMode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isDarkMode){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("night",false);
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("night",true);
+                }
+                editor.apply();
+            }
+        });
 
         // Set up the adapter for the spinner
+        Spinner languageSpinner = findViewById(R.id.language_select);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 R.layout.spinner_item, languages);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -93,13 +131,18 @@ public class SettingsActivity extends AppCompatActivity {
 
     // Method to change language and restart NewsActivity
     private void changeLanguage(String lang) {
+        // Save the selected language to SharedPreferences
+        editor = sharedPreferences.edit();
+        editor.putString("selected_language", lang);
+        editor.apply();
+
         setLocale(lang);
         Intent intent = new Intent(SettingsActivity.this, NewsActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }
 
-    //
+    //Set the language
     private void setLocale(String lang) {
         Locale myLocale = new Locale(lang);  // Create a new Locale object with the language code provided
         Resources res = getResources(); // Get the Resources object for the app

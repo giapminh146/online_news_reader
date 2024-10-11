@@ -17,9 +17,9 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.NewsViewHolder> {
-    List<Article> articleList;
+    private List<Article> articleList;
 
-    NewsRecyclerAdapter(List<Article> articleList) {
+    public NewsRecyclerAdapter(List<Article> articleList) {
         this.articleList = articleList;
     }
 
@@ -47,6 +47,10 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
             v.getContext().startActivity(intent);
         }));
 
+        // Kiểm tra trạng thái bookmark từ SharedPreferences
+        boolean isBookmarked = SavedArticlesManager.isArticleBookmarked(holder.itemView.getContext(), article);
+        article.setBookmarked(isBookmarked);
+
         if (article.isBookmarked()) {
             holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_filled);
         } else {
@@ -59,9 +63,9 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
             notifyItemChanged(position);
             // Toggle bookmark state
             if (article.isBookmarked()) {
-                SavedArticlesManager.addSavedArticle(article);
+                SavedArticlesManager.addSavedArticle(v.getContext(), article);
             } else {
-                SavedArticlesManager.removeSavedArticle(article);
+                SavedArticlesManager.removeSavedArticle(v.getContext(), article);
             }
         });
     }
@@ -69,6 +73,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
     void updateData(List<Article> data) {
         articleList.clear();
         articleList.addAll(data);
+        notifyDataSetChanged();
     }
     @Override
     public int getItemCount() {

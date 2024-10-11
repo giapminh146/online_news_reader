@@ -18,8 +18,8 @@ public class MoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_more);
 
         //Call the header
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_header, new HeaderFragment()).commit();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.fragment_header, new HeaderFragment()).commit();
 
         RecyclerView savedArticlesRecyclerView = findViewById(R.id.recycleViewId);
         SavedArticlesAdapter savedArticlesAdapter = new SavedArticlesAdapter(SavedArticlesManager.getSavedArticles());

@@ -48,6 +48,8 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
             v.getContext().startActivity(intent);
         }));
 
+        boolean isBookmarked = SavedArticlesManager.isArticleBookmarked(holder.itemView.getContext(), article);
+        article.setBookmarked(isBookmarked);
         if (article.isBookmarked()) {
             holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_filled);
         } else {
@@ -58,11 +60,11 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
         holder.bookmarkButton.setOnClickListener(v -> {
             article.setBookmarked(!article.isBookmarked());
             notifyItemChanged(position);
-            // Toggle bookmark state
+
             if (article.isBookmarked()) {
-                SavedArticlesManager.addSavedArticle(article);
+                SavedArticlesManager.addSavedArticle(v.getContext(), article);
             } else {
-                SavedArticlesManager.removeSavedArticle(article);
+                SavedArticlesManager.removeSavedArticle(v.getContext(), article);
             }
         });
     }
