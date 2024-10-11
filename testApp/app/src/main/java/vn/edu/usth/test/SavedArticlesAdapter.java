@@ -50,6 +50,7 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
 
         boolean isBookmarked = SavedArticlesManager.isArticleBookmarked(holder.itemView.getContext(), article);
         article.setBookmarked(isBookmarked);
+
         if (article.isBookmarked()) {
             holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_filled);
         } else {

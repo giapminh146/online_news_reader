@@ -47,8 +47,10 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
             v.getContext().startActivity(intent);
         }));
 
-        // Kiểm tra trạng thái bookmark từ SharedPreferences
+        // Check status bookmark from SharedPreferences
         boolean isBookmarked = SavedArticlesManager.isArticleBookmarked(holder.itemView.getContext(), article);
+        // Call isArticleBookmarked() from SavedArticlesManager to check from SharedPreferences
+        // Set that answer with isBookmarked, check and set icon bookmark
         article.setBookmarked(isBookmarked);
 
         if (article.isBookmarked()) {
@@ -70,11 +72,13 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         });
     }
 
+    //Update articleList in RecycleView
     void updateData(List<Article> data) {
-        articleList.clear();
-        articleList.addAll(data);
-        notifyDataSetChanged();
+        articleList.clear(); // Clear all of the articles have in articleList
+        articleList.addAll(data); // Add new data
+        notifyDataSetChanged(); // Update recycle
     }
+
     @Override
     public int getItemCount() {
         return articleList.size(); //Tells the adapter how many items to display in RecycleView
