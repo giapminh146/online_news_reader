@@ -310,8 +310,9 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
         TabLayout.Tab selectedTab = tabLayout.getTabAt(tabLayout.getSelectedTabPosition());
         if (selectedTab != null) {
             CharSequence tabText = selectedTab.getText();
-            String tabTextString = tabText != null ? tabText.toString() : "General";
-            getNews(tabTextString, null); // Fetch new articles for the selected category
+            String tabTextString = tabText != null ? tabText.toString() : "";
+            String englishCategory = translateCategoryToEnglish(tabTextString);
+            getNews(englishCategory, null); // Call with the English category name
         }
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
