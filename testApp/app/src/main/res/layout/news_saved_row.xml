@@ -10,23 +10,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
-        android:padding="5dp"
-        android:layout_margin="15dp"
-        android:layout_gravity="center_vertical">
+        android:layout_gravity="center_vertical"
+        android:background="@color/background_color">
 
         <!-- LinearLayout for the title, source, and bookmark button -->
         <LinearLayout
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:layout_margin="15dp">
 
             <!-- Source of the article -->
             <TextView
                 android:id="@+id/text_source"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/custom_blue"
+                android:textColor="@color/custom_blue1"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp" />
@@ -38,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:maxLines="3"
                     android:ellipsize="end"
-                    android:textColor="@color/black"
+                    android:textColor="@color/text_color"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:paddingBottom="4dp"
@@ -62,14 +63,14 @@
                     android:textSize="14sp">
                 </TextView>
                 <!-- Bookmark button -->
-                <ImageButton
+                <androidx.appcompat.widget.AppCompatImageButton
                     android:id="@+id/bookmark_button"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/bookmark"
-                    android:src="@drawable/ic_bookmark_border" />
+                    android:src="@drawable/ic_bookmark" />
             </LinearLayout>
 
         </LinearLayout>
@@ -78,6 +79,7 @@
                 android:id="@+id/img_headline"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:layout_marginStart="-12dp"
                 android:layout_gravity="center"
                 android:background="@drawable/rounded_saved_corner"
                 android:clipToOutline="true"

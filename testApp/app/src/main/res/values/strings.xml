@@ -64,4 +64,7 @@
     <string name="category">Category</string>
     <string name="language">Language</string>
     <string name="apply">Apply</string>
+    <string name="save">Save</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_email">Enter your email</string>
 </resources>

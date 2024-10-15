@@ -11,7 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/big_layout">
+        android:id="@+id/big_layout"
+        android:background="@color/background_color">
 
     <!-- Linear layout containing the image of 1st article -->
     <LinearLayout
@@ -44,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
-                android:textColor="@color/custom_blue"
+                android:textColor="@color/custom_blue1"
                 android:layout_gravity="top|start"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="10dp"
@@ -65,18 +66,18 @@
             android:layout_marginEnd="10dp"
             android:layout_gravity="top|start"
             android:textSize="25sp"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textStyle="bold"
             android:clickable="true"
             android:focusable="true"
             android:id="@+id/text_title">
         </TextView>
 
-        <ImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/bookmark_button"
             android:layout_width="48dp"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_bookmark_border"
+            android:src="@drawable/ic_bookmark"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="@string/bookmark"
             android:layout_gravity="center_vertical"
@@ -97,7 +98,7 @@
             android:paddingStart="20dp"
             android:paddingEnd="10dp"
             android:layout_gravity="top|start"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:id="@+id/text_description">
         </TextView>
     </LinearLayout>

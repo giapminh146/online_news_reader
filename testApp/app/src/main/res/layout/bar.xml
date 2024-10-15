@@ -3,7 +3,7 @@
     android:layout_width="50dp"
     android:layout_height="50dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/rounded_btn_blue"
+    android:background="@drawable/rounded_btn_red"
     android:id="@+id/backButton"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 </androidx.appcompat.widget.Toolbar>

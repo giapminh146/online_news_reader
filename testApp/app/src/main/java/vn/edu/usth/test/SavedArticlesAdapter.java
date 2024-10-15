@@ -55,7 +55,7 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
         if (article.isBookmarked()) {
             holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_filled);
         } else {
-            holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_border);
+            holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark);
         }
 
         // Set the click listener for the bookmark button

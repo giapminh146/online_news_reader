@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,9 +12,10 @@
     </include>
 
     <FrameLayout
+        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="100dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/oval_button_grey"
         android:padding="16dp">
@@ -55,39 +56,37 @@
                         android:fontFamily="@font/roboto_medium"
                         android:padding="2dp"
                         android:text="@string/settings"
-                        android:textColor="@color/custom_blue"
-                        android:textSize="25sp"
+                        android:textColor="@color/custom_blue1"
+                        android:textSize="30sp"
                         android:textStyle="bold" />
                 </LinearLayout>
             </FrameLayout>
 
             <!-- Account Settings -->
-
             <LinearLayout
                 android:id="@+id/account_setting_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:background="@drawable/rounded_btn_blue"
                 android:gravity="center_vertical"
-                android:paddingVertical="20dp"
-                android:background="@drawable/oval_button_grey"
-                android:backgroundTint="@color/custom_blue">
+                android:orientation="horizontal"
+                android:paddingVertical="20dp">
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginStart="20dp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/acc"
-                    android:textSize="20sp"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
                 <ImageView
                     android:layout_width="27dp"
                     android:layout_height="27dp"
-                    android:src="@drawable/baseline_arrow_right_24"
-                    android:layout_marginEnd="20dp"/>
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/baseline_arrow_right_24" />
             </LinearLayout>
 
             <!-- Language Select -->
@@ -98,8 +97,7 @@
                 android:layout_marginTop="15dp"
                 android:gravity="center_vertical"
                 android:paddingVertical="20dp"
-                android:background="@drawable/oval_button_grey"
-                android:backgroundTint="@color/custom_blue">
+                android:background="@drawable/rounded_btn_blue">
 
                 <TextView
                     android:layout_width="0dp"
@@ -127,9 +125,8 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
                 android:gravity="center_vertical"
-                android:background="@drawable/oval_button_grey"
-                android:paddingVertical="15dp"
-                android:backgroundTint="@color/custom_blue">
+                android:background="@drawable/rounded_btn_blue"
+                android:paddingVertical="15dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -156,8 +153,7 @@
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal"
                 android:paddingVertical="20dp"
-                android:background="@drawable/oval_button_grey"
-                android:backgroundTint="@color/custom_blue">
+                android:background="@drawable/rounded_btn_blue">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -184,43 +180,16 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Manage Privacy -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="15dp"
-                android:gravity="center_vertical"
-                android:paddingVertical="20dp"
-                android:background="@drawable/oval_button_grey"
-                android:backgroundTint="@color/custom_blue">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/roboto_medium"
-                    android:text="@string/manange_privacy"
-                    android:layout_marginStart="20dp"
-                    android:textSize="20sp"
-                    android:textColor="@color/white" />
-
-                <ImageView
-                    android:layout_width="27dp"
-                    android:layout_height="27dp"
-                    android:src="@drawable/baseline_arrow_right_24"
-                    android:layout_marginEnd="20dp"/>
-            </LinearLayout>
 
             <!-- Logout -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/oval_button_grey"
+                android:background="@drawable/rounded_btn_blue"
                 android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:backgroundTint="@color/custom_blue">
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
@@ -242,6 +211,7 @@
     </FrameLayout>
 
     <LinearLayout
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -256,8 +226,8 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/Credit"
             android:gravity="center"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="19sp" />
 
     </LinearLayout>
-</LinearLayout>
+</RelativeLayout>

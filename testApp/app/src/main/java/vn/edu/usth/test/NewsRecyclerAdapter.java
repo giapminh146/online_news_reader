@@ -67,7 +67,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         if (article.isBookmarked()) {
             holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_filled);
         } else {
-            holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_border);
+            holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark);
         }
 
         // Set the click listener for the bookmark button

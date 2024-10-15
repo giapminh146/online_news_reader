@@ -64,4 +64,7 @@
     <string name="category">Danh mục</string>
     <string name="language">Ngôn ngữ</string>
     <string name="apply">Áp dụng</string>
+    <string name="save">Lưu</string>
+    <string name="enter_your_name">Nhập tên</string>
+    <string name="enter_your_email">Nhập email</string>
 </resources>

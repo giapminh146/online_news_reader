@@ -1,12 +1,15 @@
 package vn.edu.usth.test;
 
 
+import android.app.Notification;
 import android.content.Context;
 import android.content.Intent;
 
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -20,6 +23,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +39,7 @@ public class SettingsActivity extends AppCompatActivity {
     private CheckBox checkBoxDarkMode;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
+    private SwitchCompat switchCompat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,10 +105,18 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        SwitchCompat mySwitch = findViewById(R.id.switch_notifications);
+        switchCompat = findViewById(R.id.switch_notifications);
         // Set the default color to red
-        applySwitchColor(mySwitch, false); // Set initial color
-        mySwitch.setOnCheckedChangeListener((buttonView, isChecked) -> applySwitchColor(mySwitch, isChecked));
+        applySwitchColor(switchCompat, false); // Set initial color
+        switchCompat.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            applySwitchColor(switchCompat, isChecked);
+
+            if (isChecked) {
+                Toast.makeText(getApplicationContext(), "Notifications Enabled", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getApplicationContext(), "Notifications Disabled", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         // Set up the toolbar
         Toolbar toolbar = findViewById(R.id.backButton);
@@ -127,6 +140,7 @@ public class SettingsActivity extends AppCompatActivity {
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
             startActivity(intent);
         });
+
     }
 
     // Method to change language and restart NewsActivity

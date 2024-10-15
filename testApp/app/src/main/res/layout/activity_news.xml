@@ -24,7 +24,8 @@
             android:id="@+id/TabLayoutsMenu"
             app:tabIndicatorColor="@color/red"
             app:tabIndicatorHeight="4dp"
-            app:tabTextColor="@color/white">
+            app:tabTextColor="@color/white"
+            android:background="@color/custom_blue2">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"
@@ -108,7 +109,7 @@
         android:id="@+id/bottomNavigationView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/custom_blue"
+        android:background="@color/custom_blue2"
         app:itemTextColor="@color/white"
         app:itemIconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
