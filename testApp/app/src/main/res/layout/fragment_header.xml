@@ -2,7 +2,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="10dp"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@color/white">
 
     <ImageView
         android:layout_width="121dp"
@@ -24,7 +25,7 @@
         android:layout_marginStart="5dp"
         android:layout_marginEnd="200dp"
         android:text="@string/usthnews"
-        android:textColor="@color/custom_blue1"
+        android:textColor="#000080"
         android:textSize="25sp"
         android:textStyle="bold"
         android:gravity="center"/>

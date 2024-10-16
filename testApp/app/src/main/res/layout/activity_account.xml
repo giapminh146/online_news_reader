@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white">
 
     <include
         layout="@layout/bar">
@@ -14,13 +15,12 @@
 
     <!-- FrameLayout to hold the login form  -->
     <FrameLayout
-        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/oval_button_grey">
+        android:background="@drawable/custom_background">
 
         <!-- Layout for organizing the form fields and labels  -->
         <LinearLayout
@@ -35,7 +35,7 @@
                 android:text="@string/login"
                 android:textSize="36sp"
                 android:textStyle="bold"
-                android:textColor="@color/custom_blue1"
+                android:textColor="@color/custom_blue"
                 android:gravity="center" />
 
             <!-- EditText for the user's email input -->
@@ -44,7 +44,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/oval_button_grey"
+                android:background="@drawable/custom_background"
                 android:drawableStart="@drawable/ic_person"
                 android:drawablePadding="8dp"
                 android:padding="8dp"
@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="15dp"
-                android:background="@drawable/oval_button_grey"
+                android:background="@drawable/custom_background"
                 android:drawableStart="@drawable/ic_password"
                 android:drawablePadding="8dp"
                 android:padding="8dp"
@@ -92,7 +92,7 @@
                     android:layout_margin="20dp"
                     android:text="@string/new_user"
                     android:textSize="18sp"
-                    android:textColor="@color/text_color"/>
+                    android:textColor="@color/black"/>
 
                 <TextView
                     android:id="@+id/txtRegister"
@@ -108,4 +108,4 @@
 
     </FrameLayout>
 
-</RelativeLayout>
+</LinearLayout>

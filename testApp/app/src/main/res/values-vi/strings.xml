@@ -11,7 +11,7 @@
     <string name="bookmark_3">bookmark 3 </string>
     <string name="enable_notifications">Enable Notifications</string>
     <string name="notifications_summary">Receive notifications for updates</string>
-    <string name="dark_mode">Chế độ tối</string>
+    <string name="dark_mode">Dark Mode</string>
     <string name="dark_mode_summary">Enable dark theme for the app</string>
     <string name="language_select">Ngôn ngữ</string>
     <string name="font_size_summary">Choose the preferred language</string>
@@ -64,7 +64,4 @@
     <string name="category">Danh mục</string>
     <string name="language">Ngôn ngữ</string>
     <string name="apply">Áp dụng</string>
-    <string name="save">Lưu</string>
-    <string name="enter_your_name">Nhập tên</string>
-    <string name="enter_your_email">Nhập email</string>
 </resources>

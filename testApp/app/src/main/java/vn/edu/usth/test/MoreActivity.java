@@ -18,8 +18,8 @@ public class MoreActivity extends AppCompatActivity {
         setContentView(R.layout.activity_more);
 
         //Call the header
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.fragment_header, new HeaderFragment()).commit();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.fragment_header, new HeaderFragment()).commit();
 
         RecyclerView savedArticlesRecyclerView = findViewById(R.id.recycleViewId);
         SavedArticlesAdapter savedArticlesAdapter = new SavedArticlesAdapter(SavedArticlesManager.getSavedArticles());
@@ -35,6 +35,11 @@ public class MoreActivity extends AppCompatActivity {
                 return true;
             } else if (itemId == R.id.navigation_home) {
                 startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                finish();
+                return true;
+            } else if (itemId == R.id.navigation_podcast) {
+                startActivity(new Intent(getApplicationContext(), PodcastActivity.class));
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 finish();
                 return true;

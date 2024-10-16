@@ -28,7 +28,7 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.news_saved_row, parent, false);
+                .inflate(R.layout.news_recycler_row, parent, false);
         return new ViewHolder(view);
     }
 
@@ -37,10 +37,9 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
         Article article = savedArticles.get(position);
         holder.titleTextView.setText(article.getTitle());
         holder.sourceTextView.setText(article.getSource().getName()); //Display the source of the article
-        holder.timeTextView.setText(article.getPublishedAt());
         Picasso.get().load(article.getUrlToImage())
-                .error(R.drawable.baseline_downloading_24) //Image will show when missing or fails to load
-                .placeholder(R.drawable.baseline_downloading_24)
+                .error(R.drawable.ic_email) //Image will show when missing or fails to load
+                .placeholder(R.drawable.ic_email)
                 .into(holder.imageView);
 
         holder.itemView.setOnClickListener((v -> {
@@ -49,24 +48,21 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
             v.getContext().startActivity(intent);
         }));
 
-        boolean isBookmarked = SavedArticlesManager.isArticleBookmarked(holder.itemView.getContext(), article);
-        article.setBookmarked(isBookmarked);
-
         if (article.isBookmarked()) {
             holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_filled);
         } else {
-            holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark);
+            holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_border);
         }
 
         // Set the click listener for the bookmark button
         holder.bookmarkButton.setOnClickListener(v -> {
             article.setBookmarked(!article.isBookmarked());
             notifyItemChanged(position);
-
+            // Toggle bookmark state
             if (article.isBookmarked()) {
-                SavedArticlesManager.addSavedArticle(v.getContext(), article);
+                SavedArticlesManager.addSavedArticle(article);
             } else {
-                SavedArticlesManager.removeSavedArticle(v.getContext(), article);
+                SavedArticlesManager.removeSavedArticle(article);
             }
         });
     }
@@ -77,7 +73,7 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextView, sourceTextView, timeTextView;
+        TextView titleTextView, sourceTextView;
         ImageView imageView;
         ImageButton bookmarkButton;
 
@@ -87,7 +83,6 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
             sourceTextView = itemView.findViewById(R.id.text_source);
             imageView = itemView.findViewById(R.id.img_headline);
             bookmarkButton = itemView.findViewById(R.id.bookmark_button);
-            timeTextView = itemView.findViewById(R.id.text_time);
         }
     }
 }

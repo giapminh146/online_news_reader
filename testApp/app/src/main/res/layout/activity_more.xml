@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <FrameLayout
         android:id="@+id/fragment_header"
@@ -24,7 +25,7 @@
             android:paddingTop="3dp"
             android:paddingBottom="3dp"
             android:gravity="center"
-            android:background="@color/custom_blue2">
+            android:background="@color/custom_blue">
 
             <ImageButton
                 android:id="@+id/accountButton"
@@ -83,6 +84,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:orientation="vertical"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
             android:layout_marginTop="10dp">
 
             <TextView
@@ -92,17 +95,13 @@
                 android:text="@string/saved_articles"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@color/text_color"
-                android:paddingVertical="8dp"
-                android:paddingRight="10dp"
-                android:paddingLeft="10dp"/>
+                android:textColor="@color/black"
+                android:paddingVertical="8dp" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
-                android:background="@color/text_color"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"/>
+                android:background="@color/black" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycleViewId"
@@ -115,12 +114,7 @@
             android:id="@+id/bottomNavigationView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/custom_blue2"
-            app:itemTextColor="@color/white"
-            app:itemIconTint="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:background="@color/custom_blue"
             app:menu="@menu/bottom_nav_menu" />
     </LinearLayout>
 </LinearLayout>

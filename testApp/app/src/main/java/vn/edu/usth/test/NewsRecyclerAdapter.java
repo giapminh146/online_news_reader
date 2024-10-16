@@ -17,9 +17,9 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.NewsViewHolder> {
-    private List<Article> articleList;
+    List<Article> articleList;
 
-    public NewsRecyclerAdapter(List<Article> articleList) {
+    NewsRecyclerAdapter(List<Article> articleList) {
         this.articleList = articleList;
     }
 
@@ -27,14 +27,7 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
     @Override
     public NewsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // Call the frame that will show in the main screen
-        View view;
-        if (viewType == 0) {
-            // Inflate layout cho bài báo đầu tiên
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_recycler_row, parent, false);
-        } else {
-            // Inflate layout cho các bài báo tiếp theo
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_saved_row, parent, false);
-        }
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_recycler_row,parent,false);
         return new NewsViewHolder(view);
     }
 
@@ -43,13 +36,9 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         Article article = articleList.get(position);
         holder.titleTextView.setText(article.getTitle()); //Sets the article's title in the TextView
         holder.sourceTextView.setText(article.getSource().getName()); //Display the source of the article
-        if (holder.descriptionTextView != null) {
-            holder.descriptionTextView.setText(article.getDescription());
-        }
-        holder.timeTextView.setText(article.getPublishedAt());
         Picasso.get().load(article.getUrlToImage())
-                .error(R.drawable.baseline_downloading_24) //Image will show when missing or fails to load
-                .placeholder(R.drawable.baseline_downloading_24)
+                .error(R.drawable.ic_email) //Image will show when missing or fails to load
+                .placeholder(R.drawable.ic_email)
                 .into(holder.imageView);
 
         holder.itemView.setOnClickListener((v -> {
@@ -58,16 +47,10 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
             v.getContext().startActivity(intent);
         }));
 
-        // Check status bookmark from SharedPreferences
-        boolean isBookmarked = SavedArticlesManager.isArticleBookmarked(holder.itemView.getContext(), article);
-        // Call isArticleBookmarked() from SavedArticlesManager to check from SharedPreferences
-        // Set that answer with isBookmarked, check and set icon bookmark
-        article.setBookmarked(isBookmarked);
-
         if (article.isBookmarked()) {
             holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_filled);
         } else {
-            holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark);
+            holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_border);
         }
 
         // Set the click listener for the bookmark button
@@ -76,41 +59,24 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
             notifyItemChanged(position);
             // Toggle bookmark state
             if (article.isBookmarked()) {
-                SavedArticlesManager.addSavedArticle(v.getContext(), article);
+                SavedArticlesManager.addSavedArticle(article);
             } else {
-                SavedArticlesManager.removeSavedArticle(v.getContext(), article);
+                SavedArticlesManager.removeSavedArticle(article);
             }
         });
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if (position == 0) {
-            return 0;
-        } else {
-            return 1;
-        }
-    }
-
-    //Update articleList in RecycleView
     void updateData(List<Article> data) {
-        articleList.clear(); // Clear all of the articles have in articleList
-        // Filter out articles with titles containing "Removed"
-        for (Article article : data) {
-            if (!article.getTitle().contains("Removed")) {
-                articleList.add(article); // Add only articles that do not contain "Removed" in title
-            }
-        }
-        notifyDataSetChanged(); // Update recycle
+        articleList.clear();
+        articleList.addAll(data);
     }
-
     @Override
     public int getItemCount() {
         return articleList.size(); //Tells the adapter how many items to display in RecycleView
     }
 
     static class NewsViewHolder extends RecyclerView.ViewHolder {
-        TextView titleTextView, sourceTextView, descriptionTextView, timeTextView;
+        TextView titleTextView, sourceTextView;
         ImageView imageView;
         ImageButton bookmarkButton;
 
@@ -120,8 +86,6 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
             sourceTextView = itemView.findViewById(R.id.text_source);
             imageView = itemView.findViewById(R.id.img_headline);
             bookmarkButton = itemView.findViewById(R.id.bookmark_button);
-            descriptionTextView = itemView.findViewById(R.id.text_description);
-            timeTextView = itemView.findViewById(R.id.text_time);
         }
     }
 }

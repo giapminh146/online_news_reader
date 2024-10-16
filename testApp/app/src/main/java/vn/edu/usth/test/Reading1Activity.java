@@ -72,7 +72,21 @@ public class Reading1Activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-
+        // A notification is appeared when it is clicked
+        if (itemId == R.id.bookMark) {
+            if (isBookmarked) {
+                // Change to the unbookmarked state
+                item.setIcon(R.drawable.ic_bookmark_white);
+                Toast.makeText(this, "Unbookmarked", Toast.LENGTH_SHORT).show();
+                isBookmarked = false;
+            } else {
+                // Change to the bookmarked state
+                item.setIcon(R.drawable.ic_bookmark_filled);
+                Toast.makeText(this, "Bookmarked", Toast.LENGTH_SHORT).show();
+                isBookmarked = true;
+            }
+            return true;
+        }
         if (item.getItemId() == android.R.id.home) {
             // Turn back the previous page
             finish();

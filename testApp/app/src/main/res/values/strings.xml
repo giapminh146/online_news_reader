@@ -64,7 +64,7 @@
     <string name="category">Category</string>
     <string name="language">Language</string>
     <string name="apply">Apply</string>
-    <string name="save">Save</string>
-    <string name="enter_your_name">Enter your name</string>
-    <string name="enter_your_email">Enter your email</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="podcast_thumbnail">podcastThumbnail</string>
 </resources>

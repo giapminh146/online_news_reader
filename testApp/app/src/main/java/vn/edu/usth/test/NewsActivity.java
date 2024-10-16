@@ -256,6 +256,11 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
+            } else if (itemId == R.id.navigation_podcast) {
+                startActivity(new Intent(getApplicationContext(), PodcastActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
+                return true;
             }
             return false;
         });
@@ -310,9 +315,8 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
         TabLayout.Tab selectedTab = tabLayout.getTabAt(tabLayout.getSelectedTabPosition());
         if (selectedTab != null) {
             CharSequence tabText = selectedTab.getText();
-            String tabTextString = tabText != null ? tabText.toString() : "";
-            String englishCategory = translateCategoryToEnglish(tabTextString);
-            getNews(englishCategory, null); // Call with the English category name
+            String tabTextString = tabText != null ? tabText.toString() : "General";
+            getNews(tabTextString, null); // Fetch new articles for the selected category
         }
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
