@@ -38,6 +38,11 @@ public class MoreActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 finish();
                 return true;
+            } else if (itemId == R.id.navigation_podcast) {
+                startActivity(new Intent(getApplicationContext(), PodcastActivity.class));
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                finish();
+                return true;
             }
             return false;
         });

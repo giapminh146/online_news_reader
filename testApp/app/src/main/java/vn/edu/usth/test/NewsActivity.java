@@ -256,6 +256,11 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
+            } else if (itemId == R.id.navigation_podcast) {
+                startActivity(new Intent(getApplicationContext(), PodcastActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
+                return true;
             }
             return false;
         });

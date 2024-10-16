@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Online News Reader</string>
     <string name="bookmark">book mark</string>
-    <string name="setting">Cài đặt</string>
-    <string name="settings">Cài đặt</string>
+    <string name="setting">Cài Đặt</string>
+    <string name="settings">Cài Đặt</string>
     <string name="saved_items">Saved Items</string>
     <string name="news">News</string>
     <string name="first">First</string>
@@ -37,7 +37,7 @@
     <string name="logout">Đăng xuất</string>
     <string name="example">Example</string>
     <string name="example_gmail_com">example@gmail.com</string>
-    <string name="account">Tài khoản</string>
+    <string name="account">Tài Khoản</string>
     <string name="tablayout" />
     <string name="viewpager" />
     <string name="usthnews">USTH News</string>
@@ -47,13 +47,13 @@
     <string name="manange_privacy">Quản lý quyền riêng tư</string>
     <string name="Credit">Phiên bản v1.0.0\nUSTH News</string>
     <string name="share">Chia sẻ</string>
-    <string name="general">Tổng hợp</string>
-    <string name="business">Kinh doanh</string>
-    <string name="technology">Công nghệ</string>
-    <string name="entertainment">Giải trí</string>
-    <string name="health">Sức khỏe</string>
-    <string name="science">Khoa học</string>
-    <string name="sports">Thể thao</string>
+    <string name="general">Tổng Hợp</string>
+    <string name="business">Kinh Doanh</string>
+    <string name="technology">Công Nghệ</string>
+    <string name="entertainment">Giải Trí</string>
+    <string name="health">Sức Khỏe</string>
+    <string name="science">Khoa Học</string>
+    <string name="sports">Thể Thao</string>
     <string name="news_image">News Image</string>
     <string name="title_activity_bottom">BottomActivity</string>
     <string name="more">Thêm</string>
@@ -67,4 +67,24 @@
     <string name="save">Lưu</string>
     <string name="enter_your_name">Nhập tên</string>
     <string name="enter_your_email">Nhập email</string>
+    <string name="collapse">Collapse</string>
+    <string name="imgpodcastthumbnail">imgPodcastThumbnail</string>
+    <string name="podcast_title">Podcast Title</string>
+    <string name="_0_00">0:00</string>
+    <string name="btnbackfull">btnBackFull</string>
+    <string name="play_pause">Play/Pause</string>
+    <string name="description">Description</string>
+    <string name="btnnextfull">btnNextFull</string>
+    <string name="text">Text</string>
+    <string name="now_playing_podcast_name">Now Playing: Podcast Name</string>
+    <string name="btnback">btnBack</string>
+    <string name="next">Next</string>
+    <string name="close">Close</string>
+    <string name="_00_00">00:00</string>
+    <string name="podcast_description">Podcast Description</string>
+    <string name="jan_01_2024">Jan 01, 2024</string>
+    <string name="play">Play</string>
+    <string name="podcasts">Phát Thanh</string>
+    <string name="mic">mic</string>
+    <string name="podcasts_menu">Phát thanh</string>
 </resources>
