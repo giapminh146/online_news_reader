@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Arrow Button to collapse the fullscreen -->
+    <ImageButton
+        android:id="@+id/btnCollapse"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_arrow_down"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/collapse" />
+
+    <!-- Larger Thumbnail -->
+    <ImageView
+        android:id="@+id/imgPodcastThumbnail"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:contentDescription="@string/imgpodcastthumbnail" />
+
+    <!-- Podcast Title -->
+    <TextView
+        android:id="@+id/txtPodcastTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgPodcastThumbnail"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/podcast_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_color"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Seekbar for Podcast -->
+    <SeekBar
+        android:id="@+id/seekBarFull"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtPodcastTitle"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Current Time and Total Duration -->
+    <LinearLayout
+        android:id="@+id/time_durationFull"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/seekBarFull"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/txtCurrentTimeFull"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_0_00"
+            android:textColor="@color/text_color"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/txtTotalTimeFull"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_0_00"
+            android:gravity="end"
+            android:textColor="@color/text_color"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <!-- Play/Pause Button and other controls -->
+    <LinearLayout
+        android:id="@+id/playPauseLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/time_durationFull"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageButton
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/btnBackFull"
+            android:contentDescription="@string/btnbackfull"
+            android:src="@drawable/ic_skip_previous"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+        <ImageButton
+            android:id="@+id/btnPlayPauseFull"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/ic_play"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/play_pause" />
+
+        <ImageButton
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@string/btnnextfull"
+            android:src="@drawable/ic_skip_next"
+            android:id="@+id/btnNextFull"
+            android:background="?attr/selectableItemBackgroundBorderless"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/playPauseLayout">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:textColor="@color/text_color"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:layout_marginStart="15dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/descriptionScroll">
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="@string/text"
+                android:textSize="16sp"
+                android:textColor="@color/text_color"/>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>
