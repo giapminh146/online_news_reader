@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_podcast"
+        android:icon="@drawable/ic_podcasts"
+        android:title="@string/podcasts_menu"/>
+
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/ic_more_border"
+        android:title="@string/more" />
+</menu>

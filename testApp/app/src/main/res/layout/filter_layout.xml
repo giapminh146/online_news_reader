@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/headingLabelTv"
+        android:padding="15dp"
+        android:text="@string/filter_news_sources"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textStyle="bold">
+    </TextView>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:id="@+id/view1"
+        android:layout_below="@+id/headingLabelTv"
+        android:background="@color/black">
+    </View>
+
+    <!-- Country -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/countryLabelTv"
+        android:layout_below="@+id/view1"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="@string/country"
+        android:textColor="@color/black"
+        android:textSize="16sp">
+    </TextView>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/countrySpinner"
+        android:layout_below="@+id/countryLabelTv"
+        android:padding="5dp">
+    </Spinner>
+
+    <!-- Category -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/categoryLabelTv"
+        android:layout_below="@+id/countrySpinner"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="@string/category"
+        android:textColor="@color/black"
+        android:textSize="16sp">
+    </TextView>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/categorySpinner"
+        android:layout_below="@+id/categoryLabelTv"
+        android:padding="5dp">
+    </Spinner>
+
+    <!-- Language -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/languageLabelTv"
+        android:layout_below="@+id/categorySpinner"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:text="@string/language"
+        android:textColor="@color/black"
+        android:textSize="16sp">
+    </TextView>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/languageSpinner"
+        android:layout_below="@+id/languageLabelTv"
+        android:padding="5dp">
+    </Spinner>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/applyBtn"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/languageSpinner"
+        android:background="@color/custom_red"
+        android:text="@string/apply"
+        android:textColor="@color/white">
+    </Button>
+</RelativeLayout>

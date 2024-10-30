@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <include
+        layout="@layout/bar">
+    </include>
+
+    <FrameLayout
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/oval_button_grey"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <!-- Settings Header -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:padding="2dp">
+
+                <LinearLayout
+                    android:layout_width="340dp"
+                    android:layout_height="54dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="3dp"
+                        android:background="@null"
+                        android:contentDescription="@string/setting"
+                        android:padding="2dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_settings_black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/roboto_medium"
+                        android:padding="2dp"
+                        android:text="@string/settings"
+                        android:textColor="@color/custom_blue1"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <!-- Account Settings -->
+            <LinearLayout
+                android:id="@+id/account_setting_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_btn_blue"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingVertical="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/acc"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/baseline_arrow_right_24" />
+            </LinearLayout>
+
+            <!-- Language Select -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:paddingVertical="20dp"
+                android:background="@drawable/rounded_btn_blue">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/language_select"
+                    android:textSize="20sp"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_medium" />
+
+                <Spinner
+                    android:id="@+id/language_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/languages"
+                    android:layout_marginEnd="20dp"
+                    android:backgroundTint="@color/white" />
+            </LinearLayout>
+
+            <!-- Dark Mode -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/rounded_btn_blue"
+                android:paddingVertical="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/dark_mode"
+                    android:layout_marginStart="20dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/roboto_medium" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_dark_mode"
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:buttonTint="@color/white"
+                    android:layout_marginEnd="20dp"/>
+            </LinearLayout>
+
+            <!-- Notifications -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="20dp"
+                android:background="@drawable/rounded_btn_blue">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/roboto_medium"
+                        android:text="@string/Notification"
+                        android:layout_marginStart="20dp"
+                        android:textSize="20sp"
+                        android:textColor="@android:color/white" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switch_notifications"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:trackTint="@color/white"
+                        android:layout_marginEnd="20dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+            <!-- Logout -->
+            <LinearLayout
+                android:id="@+id/logout_section"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rounded_btn_blue"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/logout"
+                    android:layout_marginStart="20dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/ic_logout"
+                    android:layout_marginEnd="20dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="20dp"
+        android:layout_gravity="bottom">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/Credit"
+            android:gravity="center"
+            android:textColor="@color/text_color"
+            android:textSize="19sp" />
+
+    </LinearLayout>
+</RelativeLayout>
