@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+=======
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
     android:padding="16dp">
+=======
+    android:padding="16dp"
+    android:background="@android:color/background_light">
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
 
     <include
         layout="@layout/bar">
     </include>
 
     <FrameLayout
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+=======
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
         android:layout_marginBottom="16dp"
         android:background="@drawable/oval_button_grey"
         android:padding="16dp">
@@ -42,7 +58,11 @@
                     <ImageButton
                         android:layout_width="48dp"
                         android:layout_height="48dp"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                         android:layout_marginEnd="3dp"
+=======
+                        android:layout_marginEnd="7dp"
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
                         android:background="@null"
                         android:contentDescription="@string/setting"
                         android:padding="2dp"
@@ -56,37 +76,68 @@
                         android:fontFamily="@font/roboto_medium"
                         android:padding="2dp"
                         android:text="@string/settings"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                         android:textColor="@color/custom_blue1"
                         android:textSize="30sp"
+=======
+                        android:textColor="@color/custom_blue"
+                        android:textSize="25sp"
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
                         android:textStyle="bold" />
                 </LinearLayout>
             </FrameLayout>
 
             <!-- Account Settings -->
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
+=======
+
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
             <LinearLayout
                 android:id="@+id/account_setting_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                 android:background="@drawable/rounded_btn_blue"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingVertical="20dp">
+=======
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingVertical="20dp"
+                android:background="@drawable/oval_button_grey"
+                android:backgroundTint="@color/light_blue">
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                     android:layout_marginStart="20dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/acc"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
+=======
+                    android:layout_weight="1"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/acc"
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
 
                 <ImageView
                     android:layout_width="27dp"
                     android:layout_height="27dp"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                     android:layout_marginEnd="20dp"
                     android:src="@drawable/baseline_arrow_right_24" />
+=======
+                    android:src="@drawable/smaller_arrow_icon"
+                    android:layout_marginEnd="20dp"/>
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
             </LinearLayout>
 
             <!-- Language Select -->
@@ -97,7 +148,12 @@
                 android:layout_marginTop="15dp"
                 android:gravity="center_vertical"
                 android:paddingVertical="20dp"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                 android:background="@drawable/rounded_btn_blue">
+=======
+                android:background="@drawable/oval_button_grey"
+                android:backgroundTint="@color/light_blue">
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
 
                 <TextView
                     android:layout_width="0dp"
@@ -106,7 +162,11 @@
                     android:text="@string/language_select"
                     android:textSize="20sp"
                     android:layout_marginStart="20dp"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                     android:textColor="@color/white"
+=======
+                    android:textColor="@color/black"
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
                     android:fontFamily="@font/roboto_medium" />
 
                 <Spinner
@@ -115,7 +175,11 @@
                     android:layout_height="wrap_content"
                     android:entries="@array/languages"
                     android:layout_marginEnd="20dp"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                     android:backgroundTint="@color/white" />
+=======
+                    android:backgroundTint="@color/custom_blue" />
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
             </LinearLayout>
 
             <!-- Dark Mode -->
@@ -125,8 +189,14 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="15dp"
                 android:gravity="center_vertical"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                 android:background="@drawable/rounded_btn_blue"
                 android:paddingVertical="15dp">
+=======
+                android:background="@drawable/oval_button_grey"
+                android:paddingVertical="15dp"
+                android:backgroundTint="@color/light_blue">
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
 
                 <TextView
                     android:layout_width="0dp"
@@ -135,14 +205,22 @@
                     android:text="@string/dark_mode"
                     android:layout_marginStart="20dp"
                     android:textSize="20sp"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                     android:textColor="@color/white"
+=======
+                    android:textColor="@color/black"
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
                     android:fontFamily="@font/roboto_medium" />
 
                 <CheckBox
                     android:id="@+id/checkbox_dark_mode"
                     android:layout_width="27dp"
                     android:layout_height="27dp"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                     android:buttonTint="@color/white"
+=======
+                    android:buttonTint="@color/custom_blue"
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
                     android:layout_marginEnd="20dp"/>
             </LinearLayout>
 
@@ -153,7 +231,12 @@
                 android:layout_marginTop="15dp"
                 android:orientation="horizontal"
                 android:paddingVertical="20dp"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                 android:background="@drawable/rounded_btn_blue">
+=======
+                android:background="@drawable/oval_button_grey"
+                android:backgroundTint="@color/light_blue">
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -169,7 +252,11 @@
                         android:text="@string/Notification"
                         android:layout_marginStart="20dp"
                         android:textSize="20sp"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                         android:textColor="@android:color/white" />
+=======
+                        android:textColor="@android:color/black" />
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
 
                     <androidx.appcompat.widget.SwitchCompat
                         android:id="@+id/switch_notifications"
@@ -180,6 +267,7 @@
                 </LinearLayout>
             </LinearLayout>
 
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
 
 
             <!-- Logout -->
@@ -191,6 +279,45 @@
                 android:background="@drawable/rounded_btn_blue"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
+=======
+            <!-- Manage Privacy -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp"
+                android:gravity="center_vertical"
+                android:paddingVertical="20dp"
+                android:background="@drawable/oval_button_grey"
+                android:backgroundTint="@color/light_blue">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/manange_privacy"
+                    android:layout_marginStart="20dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black" />
+
+                <ImageView
+                    android:layout_width="27dp"
+                    android:layout_height="27dp"
+                    android:src="@drawable/smaller_arrow_icon"
+                    android:layout_marginEnd="20dp"/>
+            </LinearLayout>
+
+            <!-- Logout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/oval_button_grey"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:backgroundTint="@color/light_blue">
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
 
                 <TextView
                     android:layout_width="0dp"
@@ -199,7 +326,11 @@
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/logout"
                     android:layout_marginStart="20dp"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
                     android:textColor="@android:color/white"
+=======
+                    android:textColor="@android:color/black"
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
                     android:textSize="20sp" />
 
                 <ImageView
@@ -212,7 +343,10 @@
     </FrameLayout>
 
     <LinearLayout
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
         android:layout_alignParentBottom="true"
+=======
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -227,8 +361,16 @@
             android:fontFamily="sans-serif-medium"
             android:text="@string/Credit"
             android:gravity="center"
+<<<<<<< HEAD:testApp/app/build/intermediates/packaged_res/debug/packageDebugResources/layout/activity_settings.xml
             android:textColor="@color/text_color"
             android:textSize="19sp" />
 
     </LinearLayout>
 </RelativeLayout>
+=======
+            android:textColor="@color/black"
+            android:textSize="19sp" />
+
+    </LinearLayout>
+</LinearLayout>
+>>>>>>> 85edd7b956969460e65842d092aafdca2cbf134f:online_news_reader/app/src/main/res/layout/activity_settings.xml
