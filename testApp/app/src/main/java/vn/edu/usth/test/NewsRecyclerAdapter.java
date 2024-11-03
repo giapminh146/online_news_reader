@@ -18,9 +18,16 @@ import java.util.List;
 
 public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapter.NewsViewHolder> {
     private List<Article> articleList;
+    private SavedArticlesManager savedArticlesManager;
+    private String userEmail; // Store the user's email for article management
 
-    public NewsRecyclerAdapter(List<Article> articleList) {
+//    public NewsRecyclerAdapter(List<Article> articleList) {
+//        this.articleList = articleList;
+//    }
+    public NewsRecyclerAdapter(List<Article> articleList, SavedArticlesManager manager, String userEmail) {
         this.articleList = articleList;
+        this.savedArticlesManager = manager;
+        this.userEmail = userEmail;
     }
 
     @NonNull
@@ -41,14 +48,14 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
     @Override
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
         Article article = articleList.get(position);
-        holder.titleTextView.setText(article.getTitle()); //Sets the article's title in the TextView
-        holder.sourceTextView.setText(article.getSource().getName()); //Display the source of the article
+        holder.titleTextView.setText(article.getTitle()); // Sets the article's title in the TextView
+        holder.sourceTextView.setText(article.getSource().getName()); // Display the source of the article
         if (holder.descriptionTextView != null) {
             holder.descriptionTextView.setText(article.getDescription());
         }
         holder.timeTextView.setText(article.getPublishedAt());
         Picasso.get().load(article.getUrlToImage())
-                .error(R.drawable.baseline_downloading_24) //Image will show when missing or fails to load
+                .error(R.drawable.baseline_downloading_24) // Image will show when missing or fails to load
                 .placeholder(R.drawable.baseline_downloading_24)
                 .into(holder.imageView);
 
@@ -58,10 +65,8 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
             v.getContext().startActivity(intent);
         }));
 
-        // Check status bookmark from SharedPreferences
-        boolean isBookmarked = SavedArticlesManager.isArticleBookmarked(holder.itemView.getContext(), article);
-        // Call isArticleBookmarked() from SavedArticlesManager to check from SharedPreferences
-        // Set that answer with isBookmarked, check and set icon bookmark
+        // Check status bookmark using the savedArticlesManager instance
+        boolean isBookmarked = savedArticlesManager.isArticleBookmarked(holder.itemView.getContext(), article, userEmail);
         article.setBookmarked(isBookmarked);
 
         if (article.isBookmarked()) {
@@ -74,11 +79,11 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
         holder.bookmarkButton.setOnClickListener(v -> {
             article.setBookmarked(!article.isBookmarked());
             notifyItemChanged(position);
-            // Toggle bookmark state
+            // Toggle bookmark state using the savedArticlesManager instance
             if (article.isBookmarked()) {
-                SavedArticlesManager.addSavedArticle(v.getContext(), article);
+                savedArticlesManager.addSavedArticle(v.getContext(), article, userEmail);
             } else {
-                SavedArticlesManager.removeSavedArticle(v.getContext(), article);
+                savedArticlesManager.removeSavedArticle(v.getContext(), article, userEmail);
             }
         });
     }

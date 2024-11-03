@@ -19,9 +19,13 @@ import vn.edu.usth.test.Models.Article;
 
 public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdapter.ViewHolder> {
     private List<Article> savedArticles;
+    private SavedArticlesManager savedArticlesManager;
+    private String userEmail; // Store the user's email for article management
 
-    public SavedArticlesAdapter(List<Article> savedArticles) {
+    public SavedArticlesAdapter(List<Article> savedArticles, SavedArticlesManager manager, String userEmail) {
         this.savedArticles = savedArticles;
+        this.savedArticlesManager = manager;
+        this.userEmail = userEmail;
     }
 
     @NonNull
@@ -36,10 +40,10 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Article article = savedArticles.get(position);
         holder.titleTextView.setText(article.getTitle());
-        holder.sourceTextView.setText(article.getSource().getName()); //Display the source of the article
+        holder.sourceTextView.setText(article.getSource().getName()); // Display the source of the article
         holder.timeTextView.setText(article.getPublishedAt());
         Picasso.get().load(article.getUrlToImage())
-                .error(R.drawable.baseline_downloading_24) //Image will show when missing or fails to load
+                .error(R.drawable.baseline_downloading_24) // Image will show when missing or fails to load
                 .placeholder(R.drawable.baseline_downloading_24)
                 .into(holder.imageView);
 
@@ -49,7 +53,7 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
             v.getContext().startActivity(intent);
         }));
 
-        boolean isBookmarked = SavedArticlesManager.isArticleBookmarked(holder.itemView.getContext(), article);
+        boolean isBookmarked = savedArticlesManager.isArticleBookmarked(holder.itemView.getContext(), article, userEmail);
         article.setBookmarked(isBookmarked);
 
         if (article.isBookmarked()) {
@@ -64,11 +68,20 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
             notifyItemChanged(position);
 
             if (article.isBookmarked()) {
-                SavedArticlesManager.addSavedArticle(v.getContext(), article);
+                savedArticlesManager.addSavedArticle(v.getContext(), article, userEmail);
             } else {
-                SavedArticlesManager.removeSavedArticle(v.getContext(), article);
+                savedArticlesManager.removeSavedArticle(v.getContext(), article, userEmail); // Use the manager instance
             }
         });
+    }
+
+    // Method to remove an article from the list and notify the adapter
+    public void removeArticle(Article article) {
+        int position = savedArticles.indexOf(article);
+        if (position != -1) {
+            savedArticles.remove(position);
+            notifyItemRemoved(position);
+        }
     }
 
     @Override

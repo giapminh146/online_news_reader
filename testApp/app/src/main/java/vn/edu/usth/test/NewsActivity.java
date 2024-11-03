@@ -1,6 +1,7 @@
 package vn.edu.usth.test;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -24,6 +25,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.tabs.TabLayout;
 
+import vn.edu.usth.test.Database.DatabaseHelper;
 import vn.edu.usth.test.Models.Article;
 import vn.edu.usth.test.Models.Constants;
 import vn.edu.usth.test.Models.request.TopHeadlinesRequest;
@@ -156,7 +158,17 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
     private void setupRecyclerView() {
         recyclerView = findViewById(R.id.recycleViewId);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new NewsRecyclerAdapter(articleList);
+
+        // Initialize SavedArticlesManager with DatabaseHelper instance
+        DatabaseHelper dbInstance = new DatabaseHelper(this);
+        SavedArticlesManager savedArticlesManager = new SavedArticlesManager(dbInstance);
+
+        // Retrieve user email from SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
+        String userEmail = sharedPreferences.getString("userEmail", null);
+
+        // Pass the required parameters to the adapter
+        adapter = new NewsRecyclerAdapter(articleList, savedArticlesManager, userEmail);
         recyclerView.setAdapter(adapter);
     }
 
