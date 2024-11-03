@@ -161,19 +161,19 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
     }
 
     private String translateCategoryToEnglish(String category) {
-        if (category.equals("Tổng hợp") || category.equals("general")) {
+        if (category.equals("Tổng Hợp") || category.equals("general")) {
             return "general";
-        } else if (category.equals("Kinh doanh") || category.equals("business")) {
+        } else if (category.equals("Kinh Doanh") || category.equals("business")) {
             return "business";
-        } else if (category.equals("Giải trí") || category.equals("entertainment")) {
+        } else if (category.equals("Giải Trí") || category.equals("entertainment")) {
             return "entertainment";
-        } else if (category.equals("Sức khỏe") || category.equals("health")) {
+        } else if (category.equals("Sức Khỏe") || category.equals("health")) {
             return "health";
-        } else if (category.equals("Khoa học") || category.equals("science")) {
+        } else if (category.equals("Khoa Học") || category.equals("science")) {
             return "science";
-        } else if (category.equals("Thể thao") || category.equals("sports")) {
+        } else if (category.equals("Thể Thao") || category.equals("sports")) {
             return "sports";
-        } else if (category.equals("Công nghệ") || category.equals("technology")) {
+        } else if (category.equals("Công Nghệ") || category.equals("technology")) {
             return "technology";
         } else {
             return "general";
