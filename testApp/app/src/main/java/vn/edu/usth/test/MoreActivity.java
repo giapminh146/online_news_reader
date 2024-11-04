@@ -90,7 +90,6 @@ public class MoreActivity extends AppCompatActivity {
     private void setAccountButtonClickListener(int viewId){
         findViewById(viewId).setOnClickListener(v -> {
             SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
-
             String userName = sharedPreferences.getString("userName", null);
 
             // If user is logged in, open ProfileActivity; else, open AccountActivity

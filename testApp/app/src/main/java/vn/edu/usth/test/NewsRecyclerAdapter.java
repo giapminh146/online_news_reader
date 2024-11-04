@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -77,13 +78,21 @@ public class NewsRecyclerAdapter extends RecyclerView.Adapter<NewsRecyclerAdapte
 
         // Set the click listener for the bookmark button
         holder.bookmarkButton.setOnClickListener(v -> {
-            article.setBookmarked(!article.isBookmarked());
-            notifyItemChanged(position);
-            // Toggle bookmark state using the savedArticlesManager instance
-            if (article.isBookmarked()) {
-                savedArticlesManager.addSavedArticle(v.getContext(), article, userEmail);
+            if (userEmail == null || userEmail.isEmpty()) {
+                // User is not logged in
+                Toast.makeText(v.getContext(), "You will need to login to save your article.", Toast.LENGTH_SHORT).show();
             } else {
-                savedArticlesManager.removeSavedArticle(v.getContext(), article, userEmail);
+                // Toggle bookmark state
+                article.setBookmarked(!article.isBookmarked());
+                notifyItemChanged(position);
+
+                if (article.isBookmarked()) {
+                    // Add saved article
+                    savedArticlesManager.addSavedArticle(v.getContext(), article, userEmail);
+                } else {
+                    // Remove saved article
+                    savedArticlesManager.removeSavedArticle(v.getContext(), article, userEmail);
+                }
             }
         });
     }
