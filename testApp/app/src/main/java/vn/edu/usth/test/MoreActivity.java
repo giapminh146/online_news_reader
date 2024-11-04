@@ -49,6 +49,13 @@ public class MoreActivity extends AppCompatActivity {
 
         RecyclerView savedArticlesRecyclerView = findViewById(R.id.recycleViewId);
         SavedArticlesAdapter savedArticlesAdapter = new SavedArticlesAdapter(savedArticles, savedArticlesManager, userEmail);
+        savedArticlesAdapter.setOnArticleUnbookmarkedListener(position -> {
+            // Remove the article from the list
+            savedArticles.remove(position);
+            // Notify the adapter of the change
+            savedArticlesAdapter.notifyItemRemoved(position);
+            savedArticlesAdapter.notifyItemRangeChanged(position, savedArticles.size());
+        });
         savedArticlesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         savedArticlesRecyclerView.setAdapter(savedArticlesAdapter);
 

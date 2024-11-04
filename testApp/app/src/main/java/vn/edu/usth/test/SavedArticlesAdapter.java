@@ -21,11 +21,37 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
     private List<Article> savedArticles;
     private SavedArticlesManager savedArticlesManager;
     private String userEmail; // Store the user's email for article management
+    private OnArticleUnbookmarkedListener onArticleUnbookmarkedListener;
 
     public SavedArticlesAdapter(List<Article> savedArticles, SavedArticlesManager manager, String userEmail) {
         this.savedArticles = savedArticles;
         this.savedArticlesManager = manager;
         this.userEmail = userEmail;
+    }
+
+    public interface OnArticleUnbookmarkedListener {
+        void onArticleUnbookmarked(int position);
+    }
+
+    public void setOnArticleUnbookmarkedListener(OnArticleUnbookmarkedListener listener) {
+        this.onArticleUnbookmarkedListener = listener;
+    }
+
+    // Unbookmarking logic
+    private void unbookmarkArticle(int position) {
+        Article article = savedArticles.get(position);
+        boolean isRemoved = savedArticlesManager.unbookmarkArticle(userEmail, article.getTitle());
+
+        if (isRemoved) {
+            savedArticles.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, savedArticles.size());
+
+            // Trigger the listener if it's set
+            if (onArticleUnbookmarkedListener != null) {
+                onArticleUnbookmarkedListener.onArticleUnbookmarked(position);
+            }
+        }
     }
 
     @NonNull
@@ -63,16 +89,43 @@ public class SavedArticlesAdapter extends RecyclerView.Adapter<SavedArticlesAdap
         }
 
         // Set the click listener for the bookmark button
+//        holder.bookmarkButton.setOnClickListener(v -> {
+//            article.setBookmarked(!article.isBookmarked());
+//            notifyItemChanged(position);
+//
+//            if (article.isBookmarked()) {
+//                savedArticlesManager.addSavedArticle(v.getContext(), article, userEmail);
+//            } else {
+//                savedArticlesManager.removeSavedArticle(v.getContext(), article, userEmail); // Use the manager instance
+//            }
+//        });
+        // Set the click listener for the bookmark button
         holder.bookmarkButton.setOnClickListener(v -> {
-            article.setBookmarked(!article.isBookmarked());
-            notifyItemChanged(position);
+            // Get the current adapter position of the article
+            int currentPosition = holder.getAdapterPosition();
 
-            if (article.isBookmarked()) {
-                savedArticlesManager.addSavedArticle(v.getContext(), article, userEmail);
-            } else {
-                savedArticlesManager.removeSavedArticle(v.getContext(), article, userEmail); // Use the manager instance
+            // Ensure the position is valid before proceeding
+            if (currentPosition != RecyclerView.NO_POSITION) {
+                article.setBookmarked(!article.isBookmarked());
+                notifyItemChanged(currentPosition);
+
+                if (article.isBookmarked()) {
+                    savedArticlesManager.addSavedArticle(v.getContext(), article, userEmail);
+                    holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark_filled);
+                } else {
+                    boolean isRemoved = savedArticlesManager.removeSavedArticle(v.getContext(), article, userEmail);
+
+                    if (isRemoved) {
+                        // Update icon and remove the item from the list
+                        holder.bookmarkButton.setImageResource(R.drawable.ic_bookmark);
+                        savedArticles.remove(currentPosition);
+                        notifyItemRemoved(currentPosition);
+                        notifyItemRangeChanged(currentPosition, savedArticles.size());
+                    }
+                }
             }
         });
+
     }
 
     // Method to remove an article from the list and notify the adapter

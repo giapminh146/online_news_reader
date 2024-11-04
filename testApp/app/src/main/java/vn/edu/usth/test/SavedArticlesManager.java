@@ -29,7 +29,12 @@ public class SavedArticlesManager {
         db = dbInstance; // Initialize with the provided DatabaseHelper instance
     }
 
-    // Add articles to saved item and set status into SharedPreferences
+
+    public boolean unbookmarkArticle(String userEmail, String articleTitle) {
+        return db.deleteArticle(userEmail, articleTitle);
+    }
+
+    // Add articles to saved item
     public void addSavedArticle(Context context, Article article, String userEmail) {
         if (db.saveArticle(article, userEmail)) {
             Toast.makeText(context, "Article saved!", Toast.LENGTH_SHORT).show();
@@ -39,12 +44,16 @@ public class SavedArticlesManager {
     }
 
     // Remove articles in the list of savedArticles and update SharedPreferences
-    public static void removeSavedArticle(Context context, Article article, String userEmail) {
-        if (db.deleteArticle(userEmail, article.getTitle())) {
+    public static boolean removeSavedArticle(Context context, Article article, String userEmail) {
+        boolean isRemoved = db.deleteArticle(userEmail, article.getTitle());
+
+        if (isRemoved) {
             Toast.makeText(context, "Article removed!", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(context, "Error removing article.", Toast.LENGTH_SHORT).show();
         }
+
+        return isRemoved;
     }
 
     // Check the articles which are bookmarked or not
