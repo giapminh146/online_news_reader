@@ -274,10 +274,6 @@ public class PodcastActivity extends AppCompatActivity implements PodcastAdapter
             String newTitle = intent.getStringExtra("updatedTitle");
             Log.d("Podcast", "Broadcast received: " + newTitle);
 
-            if (newTitle != null) {
-                txtPlayingPodcast.setText("Playing: " + newTitle); // Update title
-            }
-
         }
     };
     @Override

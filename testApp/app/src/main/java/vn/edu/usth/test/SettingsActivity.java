@@ -175,12 +175,6 @@ public class SettingsActivity extends AppCompatActivity {
         res.updateConfiguration(conf, dm); // Update the app's resources configuration with the new settings and display metrics
     }
 
-    // Method to apply color based on switch state
-    private void applySwitchColor(SwitchCompat switchCompat, boolean isChecked) {
-        int color = isChecked ? R.color.blue : R.color.light_red;
-        switchCompat.getThumbDrawable().setColorFilter(ContextCompat.getColor(SettingsActivity.this, color), PorterDuff.Mode.SRC_IN);
-    }
-
     // Method to perform the Log Out function
     private void logout(){
         SharedPreferences userPrefs = getSharedPreferences("userPrefs", MODE_PRIVATE);
