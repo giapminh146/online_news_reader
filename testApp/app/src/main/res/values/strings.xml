@@ -43,7 +43,7 @@
     <string name="Notification">Notifications</string>
     <string name="note">Turn on breaking news notifications. To receive these, enable notifications in your device settings.</string>
     <string name="manange_privacy">Manage Privacy</string>
-    <string name="Credit">Version v1.0.0\nUSTH News</string>
+    <string name="Credit">Version v2.0.0\nUSTH News</string>
     <string name="share">Share</string>
     <string name="general">general</string>
     <string name="business">business</string>
@@ -87,4 +87,5 @@
     <string name="podcasts">PODCASTS</string>
     <string name="mic">mic</string>
     <string name="podcasts_menu">Podcasts</string>
+    <string name="API_KEY">3ebfc3d8ab8945cc92c261a170d8ac96</string>
 </resources>
