@@ -106,18 +106,6 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        switchCompat = findViewById(R.id.switch_notifications);
-        // Set the default color to red
-        applySwitchColor(switchCompat, false); // Set initial color
-        switchCompat.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            applySwitchColor(switchCompat, isChecked);
-
-            if (isChecked) {
-                Toast.makeText(getApplicationContext(), "Notifications Enabled", Toast.LENGTH_SHORT).show();
-            } else {
-                Toast.makeText(getApplicationContext(), "Notifications Disabled", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         // Set up the toolbar
         Toolbar toolbar = findViewById(R.id.backButton);

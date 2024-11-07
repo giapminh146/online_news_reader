@@ -146,42 +146,6 @@
                     android:layout_marginEnd="20dp"/>
             </LinearLayout>
 
-            <!-- Notifications -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:paddingVertical="20dp"
-                android:background="@drawable/rounded_btn_blue">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/roboto_medium"
-                        android:text="@string/Notification"
-                        android:layout_marginStart="20dp"
-                        android:textSize="20sp"
-                        android:textColor="@android:color/white" />
-
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:id="@+id/switch_notifications"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:trackTint="@color/white"
-                        android:layout_marginEnd="20dp"/>
-                </LinearLayout>
-            </LinearLayout>
-
-
-
             <!-- Logout -->
             <LinearLayout
                 android:id="@+id/logout_section"

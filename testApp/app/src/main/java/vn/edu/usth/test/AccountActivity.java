@@ -91,15 +91,16 @@ public class AccountActivity extends AppCompatActivity {
         }
     }
 
+    // Using intent extra to smoother the behaviour
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // In actionbar, this is default home, not any id. It presents for "back" or "up" button
         if (item.getItemId() == android.R.id.home) {
-            // Turn back the previous page
+            // Directly navigate back to NewsActivity
+            Intent intent = new Intent(AccountActivity.this, NewsActivity.class);
+            startActivity(intent);
             finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

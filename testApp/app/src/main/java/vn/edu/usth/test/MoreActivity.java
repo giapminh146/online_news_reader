@@ -3,13 +3,18 @@ package vn.edu.usth.test;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import vn.edu.usth.test.Models.Article;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.List;
+
+import vn.edu.usth.test.Database.DatabaseHelper;
 
 public class MoreActivity extends AppCompatActivity {
 
@@ -18,12 +23,39 @@ public class MoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more);
 
+        // Retrieve user email from SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
+        String userEmail = sharedPreferences.getString("userEmail", null);
+
+        // Check if userEmail is null, and redirect to login if necessary
+        if (userEmail == null) {
+            Toast.makeText(this, "Please log in to access saved articles.", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, AccountActivity.class);
+            startActivity(intent);
+            finish(); // Close MoreActivity so the user cannot return without logging in
+            return;
+        }
+
         //Call the header
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_header, new HeaderFragment()).commit();
 
+        // Initialize SavedArticlesManager with DatabaseHelper instance
+        DatabaseHelper db= new DatabaseHelper(this);
+        SavedArticlesManager savedArticlesManager = new SavedArticlesManager(db);
+
+        // Retrieve saved articles using the savedArticlesManager instance
+        List<Article> savedArticles = savedArticlesManager.getSavedArticles(userEmail);
+
         RecyclerView savedArticlesRecyclerView = findViewById(R.id.recycleViewId);
-        SavedArticlesAdapter savedArticlesAdapter = new SavedArticlesAdapter(SavedArticlesManager.getSavedArticles());
+        SavedArticlesAdapter savedArticlesAdapter = new SavedArticlesAdapter(savedArticles, savedArticlesManager, userEmail);
+        savedArticlesAdapter.setOnArticleUnbookmarkedListener(position -> {
+            // Remove the article from the list
+            savedArticles.remove(position);
+            // Notify the adapter of the change
+            savedArticlesAdapter.notifyItemRemoved(position);
+            savedArticlesAdapter.notifyItemRangeChanged(position, savedArticles.size());
+        });
         savedArticlesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         savedArticlesRecyclerView.setAdapter(savedArticlesAdapter);
 
@@ -58,7 +90,6 @@ public class MoreActivity extends AppCompatActivity {
     private void setAccountButtonClickListener(int viewId){
         findViewById(viewId).setOnClickListener(v -> {
             SharedPreferences sharedPreferences = getSharedPreferences("userPrefs", MODE_PRIVATE);
-
             String userName = sharedPreferences.getString("userName", null);
 
             // If user is logged in, open ProfileActivity; else, open AccountActivity
