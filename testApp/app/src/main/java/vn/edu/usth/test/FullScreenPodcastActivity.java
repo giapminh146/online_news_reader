@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
+import android.text.Spanned;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -55,6 +57,8 @@ public class FullScreenPodcastActivity extends AppCompatActivity {
         String podcastDescription = intent.getStringExtra("podcastDescription");
         int currentPosition = intent.getIntExtra("currentPosition", 0);
         int totalDuration = intent.getIntExtra("totalDuration", 0);
+        String cleanHTMLDescription = podcastDescription.replace("?", "");
+        Spanned spannedText = Html.fromHtml(cleanHTMLDescription, Html.FROM_HTML_MODE_COMPACT);
 
         // Load the image using Picasso or any other image loading library
         Picasso.get().load(thumbnailUrl).into(imgThumbnail);
@@ -63,7 +67,7 @@ public class FullScreenPodcastActivity extends AppCompatActivity {
         tvTotalTime.setText(formatTime(totalDuration));
         audioProgressBar.setProgress(currentPosition);
         tvCurrentTime.setText(formatTime(currentPosition));
-        tvDescription.setText(podcastDescription);
+        tvDescription.setText(spannedText);
 
         mediaPlayer = PodcastActivity.getMediaPlayer();
 
@@ -182,7 +186,7 @@ public class FullScreenPodcastActivity extends AppCompatActivity {
 
         // Update UI with the new podcast details
         txtPodcastTitle.setText(podcast.getTitle());
-        tvDescription.setText(podcast.getDescription());
+        tvDescription.setText(Html.fromHtml(podcast.getDescription().replace("?", ""), Html.FROM_HTML_MODE_COMPACT));
         Picasso.get().load(podcast.getThumbnail()).into(imgThumbnail);
         // Broadcast updated podcast info to PodcastActivity
         broadcastPodcastInfo(podcast.getTitle());

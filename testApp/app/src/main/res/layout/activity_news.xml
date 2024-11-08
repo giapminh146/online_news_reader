@@ -110,11 +110,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/custom_blue2"
-        app:itemTextColor="@color/white"
-        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/bottom_nav_text_color_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu">
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_text_color_selector">
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 </LinearLayout>

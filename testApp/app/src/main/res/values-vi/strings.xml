@@ -88,4 +88,6 @@
     <string name="mic">mic</string>
     <string name="podcasts_menu">Phát Thanh</string>
     <string name="API_KEY">3ebfc3d8ab8945cc92c261a170d8ac96</string>
+    <string name="PODCAST_API_KEY">3e66b29fd20e4f8dad40f1655db21871</string>
+    <string name="PODCAST_BASE_URL">https://listen-api.listennotes.com/api/v2/</string>
 </resources>

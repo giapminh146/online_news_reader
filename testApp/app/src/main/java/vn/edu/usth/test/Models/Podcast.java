@@ -38,7 +38,7 @@ public class Podcast implements Serializable {
     @SerializedName("explicit_content")
     private boolean explicitContent;
 
-    @SerializedName("description_highlighted")
+    @SerializedName("description_original")
     private String description;
 
     // Constructor

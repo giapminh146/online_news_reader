@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -24,6 +25,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -52,7 +54,7 @@ public class PodcastActivity extends AppCompatActivity implements PodcastAdapter
     private ImageButton btnPlayPause, btnNext, btnClose, btnBack;
 
     public static int currentPodcastIndex = 0; // Keep track of the currently playing podcast index
-    private static final String API_KEY = "3e66b29fd20e4f8dad40f1655db21871";
+    private String API_KEY;
 
     private static MediaPlayer mediaPlayer;
     private SeekBar audioProgressBar;
@@ -67,6 +69,7 @@ public class PodcastActivity extends AppCompatActivity implements PodcastAdapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_podcast);
+        SwipeRefreshLayout swipeRefreshLayout = findViewById(R.id.swipe);
 
         // Initialize UI elements
 
@@ -74,6 +77,7 @@ public class PodcastActivity extends AppCompatActivity implements PodcastAdapter
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragment_header, new HeaderFragment()).commit();
 
+        API_KEY = getResources().getString(R.string.PODCAST_API_KEY);
         recyclerView = findViewById(R.id.podcastRecyclerView);
         progressBar = findViewById(R.id.progressBar);
         playingBox = findViewById(R.id.playingBox);
@@ -118,6 +122,12 @@ public class PodcastActivity extends AppCompatActivity implements PodcastAdapter
         btnNext.setOnClickListener(view -> nextPodcast());
         btnClose.setOnClickListener(view -> stopPlaying());
         btnBack.setOnClickListener(view -> previousPodcast());
+        // Set up swipe-to-refresh
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            fetchPodcast();
+            Toast.makeText(PodcastActivity.this, "Refreshed", Toast.LENGTH_SHORT).show();
+            swipeRefreshLayout.setRefreshing(false);  // Stop the refresh animation once data is fetched
+        });
 
         // Update SeekBar based on podcast progress
         audioProgressBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -172,11 +182,11 @@ public class PodcastActivity extends AppCompatActivity implements PodcastAdapter
 
     private void fetchPodcast() {
         progressBar.setVisibility(View.VISIBLE);
-        PodcastApiService apiService = RetrofitClient.getClient("https://listen-api-test.listennotes.com/api/v2/")
+        PodcastApiService apiService = RetrofitClient.getClient(getResources().getString(R.string.PODCAST_BASE_URL))
                 .create(PodcastApiService.class);
 
         Call<PodcastResponse> call = apiService.getSearchPodcasts(
-                API_KEY, "technology", "podcast", 10, 60, "English");
+                API_KEY, "breaking news", "episode", 10, 60, "English", 1);
 
         call.enqueue(new Callback<PodcastResponse>() {
             @Override
@@ -324,16 +334,24 @@ public class PodcastActivity extends AppCompatActivity implements PodcastAdapter
 
         // Do not set isPlaying to true here. It will be set after MediaPlayer starts.
 
-        new Thread(() -> {
-            try {
-                String finalUrl = getFinalRedirectedUrl(podcast.getAudio());
-                runOnUiThread(() -> startMediaPlayer(finalUrl)); // Call on the main thread
-            } catch (IOException e) {
-                runOnUiThread(() -> {
-                    Toast.makeText(this, "Error fetching audio URL: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
-            }
-        }).start();
+        if (podcast.getAudio() != null && !podcast.getAudio().isEmpty()) {
+            // If the audio URL is not null, start the media player
+            new Thread(() -> {
+                try {
+                    String finalUrl = getFinalRedirectedUrl(podcast.getAudio()); // Resolve any redirects if needed
+                    runOnUiThread(() -> startMediaPlayer(finalUrl)); // Call on the main thread
+                } catch (IOException e) {
+                    runOnUiThread(() -> {
+                        Toast.makeText(this, "Error fetching audio URL: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        Log.e("Podcast", "Error fetching: " + e.getMessage());
+                    });
+                }
+            }).start();
+        } else {
+            // Handle the case where the audio URL is null or empty
+            Toast.makeText(this, "Audio URL is not available for this podcast", Toast.LENGTH_SHORT).show();
+            Log.e("Podcast", "Invalid URL: " + podcast.getAudio());
+        }
     }
 
     private void startMediaPlayer(String audioUrl) {

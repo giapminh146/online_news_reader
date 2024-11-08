@@ -1,6 +1,7 @@
 package vn.edu.usth.test;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,7 @@ public class PodcastAdapter extends RecyclerView.Adapter<PodcastAdapter.PodcastV
     public void onBindViewHolder(@NonNull PodcastViewHolder holder, int position) {
         Podcast podcast = podcastList.get(position);
         holder.title.setText(podcast.getTitle());
-        holder.description.setText(podcast.getDescription());
+        holder.description.setText(Html.fromHtml(podcast.getDescription().replace("?", ""), Html.FROM_HTML_MODE_COMPACT));
 
         // Format publish date
         Date date = new Date(podcast.getPubDateMs());

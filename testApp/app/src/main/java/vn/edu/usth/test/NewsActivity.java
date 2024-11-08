@@ -255,28 +255,47 @@ public class NewsActivity extends AppCompatActivity implements SwipeRefreshLayou
     }
 
     private void setupBottomNav() {
-        //Call menu
+        // Call menu
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.navigation_home);
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
+
+            // Reset all icons to unselected (or border version) first
+            resetIcons(bottomNavigationView);
+
             if (itemId == R.id.navigation_home) {
+                // Change icon to filled home icon
+                bottomNavigationView.getMenu().findItem(R.id.navigation_home).setIcon(R.drawable.ic_home_filled);
                 return true;
             } else if (itemId == R.id.navigation_more) {
+                // Change icon to filled more icon
+                bottomNavigationView.getMenu().findItem(R.id.navigation_more).setIcon(R.drawable.ic_more_filled);
                 startActivity(new Intent(getApplicationContext(), MoreActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
             } else if (itemId == R.id.navigation_podcast) {
+                // Change icon to filled podcast icon
+                bottomNavigationView.getMenu().findItem(R.id.navigation_podcast).setIcon(R.drawable.ic_podcasts);
                 startActivity(new Intent(getApplicationContext(), PodcastActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 finish();
                 return true;
             }
+
             return false;
         });
     }
+
+    private void resetIcons(BottomNavigationView bottomNavigationView) {
+        // Reset all icons to unselected (border version)
+        bottomNavigationView.getMenu().findItem(R.id.navigation_home).setIcon(R.drawable.ic_home_border);
+        bottomNavigationView.getMenu().findItem(R.id.navigation_more).setIcon(R.drawable.ic_more_border);
+        bottomNavigationView.getMenu().findItem(R.id.navigation_podcast).setIcon(R.drawable.ic_podcast_border);
+    }
+
 
     private void setupTabLayout() {
         TabLayout tabLayout = findViewById(R.id.TabLayoutsMenu);

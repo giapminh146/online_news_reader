@@ -14,6 +14,7 @@ public interface PodcastApiService {
             @Query("type") String type,
             @Query("len_min") int lenMin,
             @Query("len_max") int lenMax,
-            @Query("language") String language
+            @Query("language") String language,
+            @Query("sort_by_date") int sort_by_date
     );
 }
