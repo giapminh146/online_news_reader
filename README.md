@@ -1,5 +1,6 @@
 A repository for the project "Online News Reader Client" of the course Mobile Application Development
-Group member:
+
+Group members:
 
 * Phung Tien Dat - 22BI13081 
 * Giap Do Anh Minh - 22BI13282 
