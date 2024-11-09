@@ -149,5 +149,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.delete(TABLE_NAME_ARTICLES, "USER_EMAIL = ?", new String[]{userEmail});
         db.close();
     }
+
+    // Method to check if an email is already used
+    public boolean checkEmailExists(String email) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME_USERS + " WHERE EMAIL=?", new String[]{email});
+        boolean exists = (cursor.getCount() > 0);
+        cursor.close();
+        return exists;
+    }
 }
 

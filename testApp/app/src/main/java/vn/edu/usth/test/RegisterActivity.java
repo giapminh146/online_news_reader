@@ -87,6 +87,8 @@ public class RegisterActivity extends AppCompatActivity {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
         } else if (!password.equals(confirmPassword)){
             Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+        } else if(db.checkEmailExists(email)) {
+            Toast.makeText(this, "Email is already registered", Toast.LENGTH_SHORT).show();
         } else {
             boolean isInserted = db.insertUser(name, email, password);
             if(isInserted) { // If register success, send message and redirect to Login Page
